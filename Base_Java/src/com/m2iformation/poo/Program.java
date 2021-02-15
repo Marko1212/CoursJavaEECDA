@@ -62,11 +62,22 @@ public class Program {
 		for(int j = 0; j < articles.size(); j++)
 		{
 		    Article article = articles.get(j);
+		    
+		    if(article.getNumeroReference() == numReference){
+		    	
+		    	article.setNom(updatedArticle.getNom());
+		    	article.setPrix(updatedArticle.getPrix());
+		    	article.setQuantiteStock(updatedArticle.getQuantiteStock());
+		    	//System.out.println(article);
+		    	//display(stock);
+		    	return true;
+		    }
 
+		    /*
 		    if(article.getNumeroReference() == numReference){
 		        articles.set(j, updatedArticle);
 		        return true;
-		    }
+		    } */
 
 		}
 		
