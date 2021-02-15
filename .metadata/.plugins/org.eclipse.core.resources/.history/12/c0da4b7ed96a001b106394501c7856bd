@@ -1,0 +1,22 @@
+package com.m2iformation;
+
+import java.util.Scanner;
+
+public class ExoSwitch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Veux-tu ouvrir (1), quitter (2), ou sauver (3) ?");
+		
+		
+		
+		System.out.println("Entre un nombre : ");
+		double a = sc.nextDouble();
+
+	}
+
+}

@@ -1,0 +1,128 @@
+package com.m2iformation.poo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Program {
+	
+	static int search(List<Article> articles, int numReference){
+		for (Article article: articles) {
+		if (article.getNumeroReference() == numReference) {
+			return numReference;
+		}
+		}
+		return 0;
+	}
+		
+	static boolean addArticle(List<Article> articles, Article article) {
+			
+			if(article.getNumeroReference() != search(articles, article.getNumeroReference())) {
+				articles.add(article);
+				return true;
+				}
+			
+		return false;
+		
+		}
+	
+	static boolean deleteArticle(List<Article> articles, int numReference) {
+
+		
+			for(int j = 0; j < articles.size(); j++)
+			{
+			    Article article = articles.get(j);
+
+			    if(article.getNumeroReference() == numReference){
+			        articles.remove(article);
+			        return true;
+			    }
+
+			}
+			
+			return false;
+		
+		}
+		
+
+	static boolean modifyArticle(List<Article> articles, int numReference, Article updatedArticle) {
+		
+		for(int j = 0; j < articles.size(); j++)
+		{
+		    Article article = articles.get(j);
+
+		    if(article.getNumeroReference() == numReference){
+		        article = updatedArticle;
+		        return true;
+		    }
+
+		}
+		
+		
+		return false;
+	}
+	
+
+	static int searchPerName(List<Article> articles, String name) {
+		
+		for(int j = 0; j < articles.size(); j++)
+		{
+		    Article article = articles.get(j);
+
+		    if(article.getNom().equals(name)){
+		        return article.getNumeroReference();
+		    }
+
+		}
+		
+		return 0;
+	}
+	
+	
+	static List <Article> Search(List<Article> articles, int min, int max) {
+
+		List<Article> = new ArrayList<>()
+		
+		
+		return null;
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int choix, num, quantite, p;
+		double prix;
+		String nom;
+		List<Article> Stock = new ArrayList<Article>();
+		//System.Console.Out.WriteLine("Compléter le code et effacer cette instruction...");
+		//System.Console.In.ReadLine();
+
+	}
+
+}
+
+	
+
+
+	
+
+
+
+	/// <summary>
+	/// Allow to display all the articles in stock 
+	/// </summary>
+	/// <param name="articles"></param>
+	static void Disaplay(List<Article> articles) { 
+		// A compléter....
+	}
+
+	/**/
+	
+	// déclarer les autres propriétés
+	static void Main(string[] args)
+	{
+
+		// A compléter....
+	}
+}
+}

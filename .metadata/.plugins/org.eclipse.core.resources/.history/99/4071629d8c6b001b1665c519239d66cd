@@ -1,0 +1,30 @@
+package com.m2iformation;
+
+import java.util.ArrayList;
+
+public class TableauxCollections {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		for (int i = 0; i < listeDeNoms.length; i++) {
+			System.out.println(listeDeNoms[i]);
+		}
+		
+		// le 'foreach' de Java
+		for (String str : listDeNoms) {
+			System.out.println(str);
+		}
+		
+		ArrayList<String> list2 = new ArrayList<>();
+		
+		list2.add("Hello");
+		
+		for (int i = 0; i < list2.size(); i++) {
+			System.out.println(list2.get(i));
+		}
+
+	}
+
+}

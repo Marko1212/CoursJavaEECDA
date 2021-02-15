@@ -1,0 +1,38 @@
+package com.m2iformation;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		
+		//entiers primitifs
+		byte octet;
+		octet = 120;
+		
+		short s = 8;
+		
+		int i = 7;
+		int j = 4;
+		
+		long l = 154;
+		
+		//flottants primitifs		
+		float f = 40.4f; //float
+		
+		double d = 40.8; //double
+		
+		
+		//il faut mettre simple cote!
+		char c = '7'; //char
+		
+		boolean bool = true | false; //boolean
+		
+		System.out.println((float)4/7);
+		
+		System.out.println(i/(float)j);
+		
+		System.out.println(f/i);
+		
+
+	}
+
+}

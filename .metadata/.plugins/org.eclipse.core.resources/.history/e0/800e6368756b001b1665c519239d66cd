@@ -1,0 +1,67 @@
+package com.m2iformation;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Random;
+ 
+public class ExoJustePrix
+{
+    private static final BufferedReader keyboardReading = new BufferedReader(new InputStreamReader(System.in));
+ 
+    public static void main(String[] args) throws IOException
+    {
+        jouerAuJustePrix();
+    }
+ 
+    private static void jouerAuJustePrix() throws IOException
+    {
+        boolean continuerDeJouer = true;
+        while (continuerDeJouer)
+        {
+            jouerUnJeu();
+ 
+            System.out.println("Voulez-vous rejouer (O : Oui, N : Non) ?");
+            String input = keyboardReading.readLine();
+            if ("N".equals(input) || "n".equals(input))
+            {
+                continuerDeJouer = false;
+            }
+        }
+    }
+ 
+    private static void jouerUnJeu() throws IOException
+    {
+ 
+        int Prix = -1;
+        int Compteur = 0;
+        Random rand = new Random();
+        int JustePrix = rand.nextInt(100) + 1;
+ 
+        System.out.println("Vous devez deviner le juste prix ... à vous de jouer!...");
+ 
+        while (Prix != JustePrix)
+        {
+            String input = keyboardReading.readLine();
+           try {
+            Prix = Integer.parseInt(input);
+            } catch(Exception e) {
+            	System.out.println("Vous devez entrez une valeur numérique!");
+            }
+            ++Compteur;
+            if (Compteur >= 7) {
+            	System.out.println("Vous avez dépassé le nombre de tentatives autorisé! Au revoir!");
+            	return;
+            }
+            if (Prix < JustePrix)
+                System.out.println("C'est plus");
+ 
+            if (Prix > JustePrix)
+                System.out.println("C'est moins");
+ 
+        }
+ 
+        System.out.println("Vous avez gagné en " + Compteur + " coup(s) !");
+    }
+ 
+}

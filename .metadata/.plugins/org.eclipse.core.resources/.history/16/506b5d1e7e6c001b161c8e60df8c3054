@@ -1,0 +1,59 @@
+package com.m2iformation.poo.ecole;
+
+import java.util.ArrayList;
+
+public class Cours {
+	
+	private String nomCours;
+	private int nombreHeuresCours;
+	private int anneeCours;
+	private ArrayList<Eleve> listeEleves;
+	
+	public Cours(String nomCours, int nombreHeuresCours, int anneeCours, listeEleves) {
+		super();
+		this.nomCours = nomCours;
+		this.nombreHeuresCours = nombreHeuresCours;
+		this.anneeCours = anneeCours;
+		this.listeEleves = listeEleves;
+	}
+
+	public String getNomCours() {
+		return nomCours;
+	}
+
+	public void setNomCours(String nomCours) {
+		this.nomCours = nomCours;
+	}
+
+	public int getNombreHeuresCours() {
+		return nombreHeuresCours;
+	}
+
+	public void setNombreHeuresCours(int nombreHeuresCours) {
+		this.nombreHeuresCours = nombreHeuresCours;
+	}
+
+	public int getAnneeCours() {
+		return anneeCours;
+	}
+
+	public void setAnneeCours(int anneeCours) {
+		this.anneeCours = anneeCours;
+	}
+	
+	public boolean inscrire(Eleve eleve) {
+		
+		if (eleve.getAnneeCoursSuivieEleve() == this.getAnneeCours()) {
+			this.listeEleves.add(eleve);
+			return true;
+		}
+		 return false;
+	}
+
+
+	
+	
+	
+	
+
+}

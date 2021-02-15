@@ -1,0 +1,18 @@
+package com.m2iformation.poo;
+
+public class Article {
+
+	private int reference;
+	private String nom;
+	private float prix;
+	private int quantiteStock;
+	
+	public Article {
+		
+	}
+	
+
+	
+	
+
+}

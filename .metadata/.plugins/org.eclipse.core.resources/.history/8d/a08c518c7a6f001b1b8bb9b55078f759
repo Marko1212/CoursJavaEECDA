@@ -1,0 +1,224 @@
+package com.m2iformation.poo;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class Program {
+	
+	static ArrayList<Article> stock = new ArrayList<>(Arrays.asList(
+			new Article(1,"Stylo", 130, 4),
+			new Article(2, "Gomme", 5, 130),
+			new Article(3,"Calculatrice", 120, 120),
+			new Article(4,"Ciseaux", 10, 20),
+			new Article(5,"Verre", 120, 33),
+			new Article(6,"Crayon", 3, 44),
+			new Article(7, "Colle", 10, 55)
+
+	));
+	
+	static Article search(List<Article> articles, int numReference){
+		for (Article article: articles) {
+		if (article.getNumeroReference() == numReference) {
+			return article;
+		}
+		}
+		return null;
+	}
+		
+	static boolean addArticle(List<Article> articles, Article articleToAdd) {
+			if (search(articles, articleToAdd.getNumeroReference()) == null) {
+				articles.add(articleToAdd);
+				return true;
+				}
+			
+			return false;
+		
+		}
+	
+	static boolean deleteArticle(List<Article> articles, int numReference) {
+
+		
+			for(int j = 0; j < articles.size(); j++)
+			{
+			    Article article = articles.get(j);
+
+			    if(article.getNumeroReference() == numReference){
+			        articles.remove(article);
+			        return true;
+			    }
+
+			}
+			
+			return false;
+		
+		}
+		
+
+	static boolean modifyArticle(List<Article> articles, int numReference, Article updatedArticle) {
+		
+		for(int j = 0; j < articles.size(); j++)
+		{
+		    Article article = articles.get(j);
+
+		    if(article.getNumeroReference() == numReference){
+		        article = updatedArticle;
+		        return true;
+		    }
+
+		}
+		
+		
+		return false;
+	}
+	
+
+	static Article searchPerName(List<Article> articles, String name) {
+		
+		for(int j = 0; j < articles.size(); j++)
+		{
+		    Article article = articles.get(j);
+
+		    if(article.getNom().equals(name)){
+		        return article;
+		    }
+
+		}
+		
+		return null;
+	}
+	
+	
+	static List <Article> searchPerPriceInterval(List<Article> articles, int min, int max) {
+
+		List<Article> results = new ArrayList<Article>();
+		
+		for(int j = 0; j < articles.size(); j++)
+		{
+		    Article article = articles.get(j);
+
+		    if(article.getPrix() >= min && article.getPrix() <= max){
+		        results.add(article);
+		    }
+
+		}
+		
+		if (!results.isEmpty()) {
+			return results;
+		}
+		
+		return null;
+	}
+	
+	
+	static void display(List<Article> articles) { 
+		
+		for (Article article : articles) {
+		
+			System.out.println(article);
+			
+		}
+	}
+	
+
+	public static void main(String[] args) {
+	
+		Scanner lecteur = new Scanner(System.in);
+		
+		int choix, num, quantite, p;
+		double prix;
+		String nom;
+		
+		System.out.println("1 - Rechercher un article par référence");
+		System.out.println("2 - Ajouter un article au stock");
+		System.out.println("3 - Supprimer un article");
+		System.out.println("4 - Modifier un article");
+		System.out.println("5 - Rechercher un article par nom");
+		System.out.println("6 - Rechercher un article par intervalle de prix de vente");
+		System.out.println("7 - Afficher tous les articles");
+		System.out.println("8 - Quitter");
+		System.out.print("Votre choix: ");
+		
+		choix = lecteur.nextInt();
+		
+		
+		switch (choix) {
+	      case 1:
+	    	
+	    	System.out.println("Entrez un numero de référence : ");
+	    	num = lecteur.nextInt();
+	    	if (search(stock, num) == null) {
+	    		System.out.println("Le stock n'a pas d'article avec cette référence!");
+	    		break;
+	    	} else {
+	    		System.out.println(search(stock, num));
+	    		break;
+	    	}
+	 
+	      case 2:
+		    	
+		    	System.out.println("Entrez un numero de référence : ");
+		    	num = lecteur.nextInt();
+		    	lecteur.nextLine();
+		    	System.out.println("Entrez un nom d'article : ");
+		    	nom = lecteur.nextLine();
+		    	System.out.println("Entrez un prix : ");
+		    	prix = lecteur.nextDouble();
+		    	System.out.println("Entrez une quantité : ");
+		    	quantite = lecteur.nextInt();
+		    	
+		    	Article articleAAjouter = new Article(num, nom, prix, quantite);
+		    	
+		    	if (addArticle(stock, articleAAjouter)) {
+		    		System.out.println("L'article a bien été ajouté au stock!");
+		    		break;
+		    	} else {
+		    		System.out.println("L'article avec ce numéro de référence existe déjà au stock!");
+		    		break;
+		    	}
+		    	
+		  
+	      case 3:
+	    	  
+	    	  	System.out.println("Entrez un numero de référence : ");
+		    	num = lecteur.nextInt();
+		    	
+		    	if(deleteArticle(stock, num)) {
+		    		System.out.println("L'article a bien été supprimé du stock!");
+		    		break;
+		    	} else {
+		    		System.out.println("L'article avec cette référence n'existe pas!");
+		    		break;
+		    	}
+	      
+	      case 4:
+	    	  
+	    	  	System.out.println("Entrez un numero de référence : ");
+		    	num = lecteur.nextInt();
+		    	
+		    	if ()
+		    	
+		    	if(deleteArticle(stock, num)) {
+		    		System.out.println("L'article a bien été supprimé du stock!");
+		    		break;
+		    	} else {
+		    		System.out.println("L'article avec cette référence n'existe pas!");
+		    		break;
+		    	}
+		  
+	      case 8:
+	    	  System.out.println("Bye bye!");
+	    	  break;
+
+	      default:
+	        System.out.printf("Erreur! Votre choix %s n'est pas correct!", choix);
+	        lecteur.close();
+	        return;
+	    }
+		
+		lecteur.close();
+
+	}
+	
+}
