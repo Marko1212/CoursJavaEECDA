@@ -6,15 +6,19 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-		Chat persea = new Chat("noir-blanc", "gouttière", 1, "perséa", 4);
+		Chat persea = new Chat(Couleur.GRIS, "gouttière", 1, "perséa", 4);
 		
-		persea.setCouleur("arc-en-ciel");
+		persea.setCouleur(Couleur.ROUX);
 
 		System.out.println(persea);
+		System.out.println(persea.getCouleur().getHex());
+		System.out.println(persea.getCouleur().getRgb());
 		
 		persea.crier();
 		
 		persea.manger();
+		
+		persea.bouger();
 		
 		Cheval pegase = new Cheval();
 		
