@@ -1,22 +1,25 @@
 package com.m2iformation.heritage;
 
 public class Cheval extends Animal {
-	private String couleur;
-	private String race;
-	private int age;
-	private String nom;
-	private float poids;
-	
+
+	@Override
 	public void crier() {
-		System.out.println("j'hennis");
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void manger() {
-		System.out.println("je mange des carottes");
+		// TODO Auto-generated method stub
+		
 	}
-	
+
+	@Override
 	public void dormir() {
-		System.out.println("je dors en moyenne 10 heures");
+		// TODO Auto-generated method stub
+		
 	}
+
+	
 
 }

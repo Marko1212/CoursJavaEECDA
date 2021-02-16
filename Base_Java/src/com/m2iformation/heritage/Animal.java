@@ -1,6 +1,6 @@
 package com.m2iformation.heritage;
 
-public class Animal {
+public abstract class Animal implements IAnimalAction {
 	private String couleur;
 	private String race;
 	private int age;
@@ -18,19 +18,7 @@ public class Animal {
 		this.nom = nom;
 		this.poids = poids;
 	}
-
-	public void crier() {
-		System.out.println("je crie");
-	}
-
-	public void manger() {
-		System.out.println("je mange");
-	}
 	
-	public void dormir() {
-		System.out.println("je dors");
-	}
-
 	public String getCouleur() {
 		return couleur;
 	}
