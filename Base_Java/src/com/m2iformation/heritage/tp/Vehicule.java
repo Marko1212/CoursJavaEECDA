@@ -9,6 +9,8 @@ public abstract class Vehicule {
 	private static int nbVehicules = 0;
 
 	public Vehicule() {
+		nbVehicules++;
+		this.matricule = nbVehicules;
 	}
 
 	public Vehicule(int anneeModele, double prix) {

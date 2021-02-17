@@ -1,12 +1,13 @@
 package com.m2iformation.heritage.tp;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 public class Ouvrier extends Employe {
 	
 	private static final double SMIG = 1300;
 	
-	private LocalDate dateEntree;
+	private String dateEntree;
 	
 	//LocalDate dateEntree = LocalDate.of(2021, 2, 26);
 
@@ -17,19 +18,19 @@ public class Ouvrier extends Employe {
 
 
 
-	public Ouvrier(String nom, String prenom, String dateNaissance, LocalDate dateEntree) {
+	public Ouvrier(String nom, String prenom, String dateNaissance, String dateEntree) {
 		super(nom, prenom, dateNaissance);
 		this.dateEntree = dateEntree;
 		// TODO Auto-generated constructor stub
 	}
 
-	public LocalDate getDateEntree() {
+	public String getDateEntree() {
 		return dateEntree;
 	}
 
 
 
-	public void setDateEntree(LocalDate dateEntree) {
+	public void setDateEntree(String dateEntree) {
 		this.dateEntree = dateEntree;
 	}
 
@@ -43,8 +44,12 @@ public class Ouvrier extends Employe {
 	@Override
 	public double getSalaire() {
 		// TODO Auto-generated method stub
+	
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    LocalDate dateEntreeFormatee = LocalDate.parse(dateEntree, formatter);
+	
 		
-	int differenceInYears = Period.between(dateEntree, LocalDate.now()).getYears();
+	int differenceInYears = Period.between(dateEntreeFormatee, LocalDate.now()).getYears();
 	    System.out.println(differenceInYears);
 		
 		return (SMIG + 20 * differenceInYears) <= 2*SMIG ? (SMIG + 20 * differenceInYears) : 2 * SMIG;

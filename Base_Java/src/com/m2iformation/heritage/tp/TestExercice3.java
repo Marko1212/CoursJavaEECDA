@@ -7,7 +7,7 @@ public class TestExercice3 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Ouvrier ouvrier = new Ouvrier("Dupont", "Pierre", "02/03/1930", LocalDate.of(1950, 3, 1));
+		Ouvrier ouvrier = new Ouvrier("Dupont", "Pierre", "02/03/1930", "01/03/1950");
 		
 		
 		Cadre cadre = new Cadre("Nadal", "Rafael", "05/05/1980", 4);

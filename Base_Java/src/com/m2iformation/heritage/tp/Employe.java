@@ -10,6 +10,8 @@ public abstract class Employe {
     private static int nbEmployes=0;
     
     public Employe() {
+    	nbEmployes++;
+    	matricule = nbEmployes;
 	}
     
     public Employe(String nom, String prenom, String dateNaissance) {
