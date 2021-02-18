@@ -49,10 +49,10 @@ public class Ouvrier extends Employe {
     LocalDate dateEntreeFormatee = LocalDate.parse(dateEntree, formatter);
 	
 		
-	int differenceInYears = Period.between(dateEntreeFormatee, LocalDate.now()).getYears();
-	    System.out.println(differenceInYears);
+	int anciennete = Period.between(dateEntreeFormatee, LocalDate.now()).getYears();
+	    System.out.println(anciennete);
 		
-		return (SMIG + 20 * differenceInYears) <= 2*SMIG ? (SMIG + 20 * differenceInYears) : 2 * SMIG;
+		return (SMIG + 20 * anciennete) <= 2*SMIG ? (SMIG + 20 * anciennete) : 2 * SMIG;
 	}
 
 

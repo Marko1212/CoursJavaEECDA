@@ -1,13 +1,11 @@
 package com.m2iformation.heritage.tp;
 
-import java.time.LocalDate;
-
 public class TestExercice3 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Ouvrier ouvrier = new Ouvrier("Dupont", "Pierre", "02/03/1930", "01/03/1950");
+		Ouvrier ouvrier = new Ouvrier("Dupont", "Pierre", "02/03/1930", "01/03/1970");
 		
 		
 		Cadre cadre = new Cadre("Nadal", "Rafael", "05/05/1980", 4);
