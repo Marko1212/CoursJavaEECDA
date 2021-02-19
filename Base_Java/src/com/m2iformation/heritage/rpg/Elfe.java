@@ -10,7 +10,12 @@ public class Elfe extends Personnage implements IChasseur {
 		endurance = IChasseur.ENDURANCE_ELFE;
 		agilite = IChasseur.AGILITE_ELFE;
 	}
+
 	
+	@Override
+	public String toString() {
+		return "Elfe : " + super.toString();
+	}
 	
 
 }

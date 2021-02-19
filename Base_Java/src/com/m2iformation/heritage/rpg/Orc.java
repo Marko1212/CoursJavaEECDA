@@ -10,6 +10,12 @@ public class Orc extends Personnage implements IChaman, IChasseur {
 		endurance = IChaman.ENDURANCE_ORC + IChasseur.ENDURANCE_ORC;
 		agilite = IChaman.AGILITE_ORC + IChasseur.ENDURANCE_ORC;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Orc : " + super.toString();
+	}
 	
 	
 

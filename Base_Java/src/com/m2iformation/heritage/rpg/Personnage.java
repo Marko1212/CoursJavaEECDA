@@ -40,7 +40,7 @@ public void setAgilite(int agilite) {
 }
 
 public void attaquer(Personnage cible) {
-	double nbDegats = 1/10 * force + 1/10 * agilite;
+	double nbDegats = (double )(force + agilite)/10;
 	endurance++;
 	agilite--;
 	cible.recevoirDegats(nbDegats);
@@ -48,6 +48,7 @@ public void attaquer(Personnage cible) {
 }
 
 public void recevoirDegats(double nbDegats) {
+	//System.out.println("je reçois " + nbDegats);
 	endurance -= nbDegats;
 	agilite++;
 }
