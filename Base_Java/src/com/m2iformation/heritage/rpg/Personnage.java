@@ -8,11 +8,11 @@ public abstract class Personnage {
  
  protected int agilite;
 
-public Personnage(int force, double endurance, int agilite) {
+public Personnage() {
 
-	this.force = force;
-	this.endurance = endurance;
-	this.agilite = agilite;
+	this.force = 0;
+	this.endurance = 0;
+	this.agilite = 0;
 }
 
 public int getForce() {
