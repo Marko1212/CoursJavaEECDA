@@ -14,7 +14,23 @@ public class Driver {
 			System.out.println("je suis dans le finally");
 		}
 		System.out.println("hello");
-	}
-	
+		
+		
 
+		FeuSignalisation feu = new FeuSignalisation();
+		
+		try {
+			feu.changeColor("blue");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+		 System.out.println(e.getMessage());
+		}
+		
+		
+	}
+
+
+	
+	
+	
 }
