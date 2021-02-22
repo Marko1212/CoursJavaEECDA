@@ -11,14 +11,14 @@ public class FeuSignalisation {
 	}
 
 
-	public void changeColor(String color) throws Exception {
+	public void changeColor(String color) throws FeuSignalisationException {
 		
 		if (color.toLowerCase() == "red" || color.toLowerCase() == "green" || color.toLowerCase() == "yellow") {
 			this.colorOfLight = color;
 			return;
 		}
 	
-		throw new Exception("Le feu ne peut pas avoir cette couleur!");
+		throw new FeuSignalisationException("Le feu ne peut pas avoir cette couleur!");
 		
 	}
 

@@ -21,7 +21,8 @@ public class Driver {
 		
 		try {
 			feu.changeColor("blue");
-		} catch (Exception e) {
+		} 
+		catch (FeuSignalisationException e) {
 			// TODO Auto-generated catch block
 		 System.out.println(e.getMessage());
 		}
