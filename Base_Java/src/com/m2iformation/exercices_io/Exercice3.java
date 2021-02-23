@@ -16,8 +16,6 @@ public class Exercice3 {
 
 	        try (Scanner sc = new Scanner(System.in); BufferedWriter bw = new BufferedWriter(new FileWriter("outputFromConsole.txt", true))) {
 
-	            // We read line by line, a line ends with a newline character
-	            // (in Java a '\n') and then we write it into the file
 	            while (true) {
 
 	                inputText = sc.nextLine();
