@@ -1,8 +1,10 @@
 package com.m2iformation.learning_io.tp;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,6 +71,37 @@ public class Main {
 		System.out.println(villes.get(1));
 		System.out.println(villes.get(2));
 		System.out.println(villes.get(3));
+		
+		try (BufferedWriter bw1 = new BufferedWriter(new FileWriter("dep_59.csv", true)); BufferedWriter bw2 = new BufferedWriter(new FileWriter("dep_83.csv", true))) {
+			
+			String ligne59="";
+			String ligne83="";
+			
+			for (Ville ville : villes) {
+				
+				if (ville.getDepartement().equals("\"59\"")) {
+				 
+					//System.out.println(ville.toFile());
+					bw1.write(ville.toFile());
+					bw1.newLine();
+				}
+				
+				if (ville.getDepartement().equals("\"83\"")) {
+			
+					bw2.write(ville.toFile());
+					bw2.newLine();
+				}
+				
+			}
+			
+		} catch (FileNotFoundException f) {
+			f.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	
+			
 	}
 
 }

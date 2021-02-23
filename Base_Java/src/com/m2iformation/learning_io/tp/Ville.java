@@ -249,6 +249,11 @@ public class Ville {
 				+ ", altitudeMax=" + altitudeMax + "]";
 	}
 	
-	
-	
+	public String toFile() {
+		return id + "," + departement + "," + slug + "," + nom + "," + nomSimple + "," + nomReel +"," + nomSoundex + ","
+				+ nomMetaphore +"," + codePostal + "," + numeroDeCommune + "," + codeCommune + "," + arrondissement + ","
+				+ canton + "," + amdi + "," + population2010 + "," + population1999 + "," + population2012 + "," + densite2010
+				+ "," + superficie + "," + longitudeDeg + "," + latitudeDeg + "," + longitudeGrd + "," + latitudeGrd + "," +
+				longitudeDms + "," + latitudeDms + "," + altitudeMin + "," + altitudeMax;
+	}
 }
