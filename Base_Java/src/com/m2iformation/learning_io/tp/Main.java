@@ -74,8 +74,6 @@ public class Main {
 		
 		try (BufferedWriter bw1 = new BufferedWriter(new FileWriter("dep_59.csv", true)); BufferedWriter bw2 = new BufferedWriter(new FileWriter("dep_83.csv", true))) {
 			
-			String ligne59="";
-			String ligne83="";
 			
 			for (Ville ville : villes) {
 				
