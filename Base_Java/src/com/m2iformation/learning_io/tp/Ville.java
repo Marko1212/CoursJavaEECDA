@@ -2,7 +2,7 @@ package com.m2iformation.learning_io.tp;
 
 public class Ville {
 	
-	private String id;
+	private int id;
 	private String departement;
 	private String slug;
 	private String nom;
@@ -37,7 +37,7 @@ public class Ville {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Ville(String id, String departement, String slug, String nom, String nomSimple, String nomReel, String nomSoundex,
+	public Ville(int id, String departement, String slug, String nom, String nomSimple, String nomReel, String nomSoundex,
 			String nomMetaphore, String codePostal, String numeroDeCommune, String codeCommune, String arrondissement,
 			String canton, String amdi, String population2010, String population1999, String population2012,
 			String densite2010, String superficie, String longitudeDeg, String latitudeDeg, String longitudeGrd,
@@ -74,10 +74,10 @@ public class Ville {
 	
 	
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getDepartement() {

@@ -27,34 +27,34 @@ public class Main {
 				
 				
 				Ville ville = new Ville();
-				
-				ville.setId((String)ligneTableau.get(0));
-				ville.setDepartement((String) ligneTableau.get(1));
-				ville.setSlug((String) ligneTableau.get(2));
-				ville.setNom((String) ligneTableau.get(3));
-				ville.setNomSimple((String) ligneTableau.get(4));
-				ville.setNomReel((String) ligneTableau.get(5));
-				ville.setNomSoundex((String) ligneTableau.get(6));
-				ville.setNomMetaphore((String) ligneTableau.get(7));
-				ville.setCodePostal((String) ligneTableau.get(8));
-				ville.setNumeroDeCommune((String) ligneTableau.get(9));
-				ville.setCodeCommune((String) ligneTableau.get(10));
-				ville.setArrondissement((String) ligneTableau.get(11));
-				ville.setCanton((String) ligneTableau.get(12));
-				ville.setAmdi((String) ligneTableau.get(13));
-				ville.setPopulation2010((String) ligneTableau.get(14));
-				ville.setPopulation1999((String) ligneTableau.get(15));
-				ville.setPopulation2012((String) ligneTableau.get(16));
-				ville.setDensite2010((String) ligneTableau.get(17));
-				ville.setSuperficie((String) ligneTableau.get(18));
-				ville.setLongitudeDeg((String) ligneTableau.get(19));
-				ville.setLatitudeDeg((String) ligneTableau.get(20));
-				ville.setLongitudeGrd((String) ligneTableau.get(21));
-				ville.setLatitudeGrd((String) ligneTableau.get(22));
-				ville.setLongitudeDms((String) ligneTableau.get(23));
-				ville.setLatitudeDms((String) ligneTableau.get(24));
-				ville.setAltitudeMin((String) ligneTableau.get(25));
-				ville.setAltitudeMax((String) ligneTableau.get(26));
+				//System.out.println(ligneTableau.get(0));
+				ville.setId(Integer.parseInt(ligneTableau.get(0).replaceAll("[^0-9]", "")));
+				ville.setDepartement(ligneTableau.get(1));
+				ville.setSlug(ligneTableau.get(2));
+				ville.setNom(ligneTableau.get(3));
+				ville.setNomSimple(ligneTableau.get(4));
+				ville.setNomReel(ligneTableau.get(5));
+				ville.setNomSoundex(ligneTableau.get(6));
+				ville.setNomMetaphore(ligneTableau.get(7));
+				ville.setCodePostal(ligneTableau.get(8));
+				ville.setNumeroDeCommune(ligneTableau.get(9));
+				ville.setCodeCommune(ligneTableau.get(10));
+				ville.setArrondissement(ligneTableau.get(11));
+				ville.setCanton(ligneTableau.get(12));
+				ville.setAmdi(ligneTableau.get(13));
+				ville.setPopulation2010(ligneTableau.get(14));
+				ville.setPopulation1999(ligneTableau.get(15));
+				ville.setPopulation2012(ligneTableau.get(16));
+				ville.setDensite2010(ligneTableau.get(17));
+				ville.setSuperficie(ligneTableau.get(18));
+				ville.setLongitudeDeg(ligneTableau.get(19));
+				ville.setLatitudeDeg(ligneTableau.get(20));
+				ville.setLongitudeGrd(ligneTableau.get(21));
+				ville.setLatitudeGrd(ligneTableau.get(22));
+				ville.setLongitudeDms(ligneTableau.get(23));
+				ville.setLatitudeDms(ligneTableau.get(24));
+				ville.setAltitudeMin(ligneTableau.get(25));
+				ville.setAltitudeMax(ligneTableau.get(26));
 				
 				villes.add(ville);
 			}
