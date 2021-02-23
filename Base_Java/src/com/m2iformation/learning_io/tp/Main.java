@@ -65,6 +65,9 @@ public class Main {
 			e.printStackTrace();
 		}
 		
+		System.out.println(villes.get(0));
+		System.out.println(villes.get(1));
+		System.out.println(villes.get(2));
 		System.out.println(villes.get(3));
 	}
 
