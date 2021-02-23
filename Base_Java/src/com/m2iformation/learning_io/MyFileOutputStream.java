@@ -13,7 +13,8 @@ public class MyFileOutputStream {
 
 		try (FileOutputStream fos = new FileOutputStream("text.txt", true)) {
 			
-			fos.write(" Coucou c'est nous".getBytes(StandardCharsets.UTF_8));
+			//sur Windows il faut mieux mettre \r\n pour le retour à la ligne (même si ça marche ici avec juste \n)
+			fos.write("\n Coucou c'est nous".getBytes(StandardCharsets.UTF_8));
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
