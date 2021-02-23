@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 public class MyFileInputStream {
 	public static void main(String[] args) {
@@ -25,14 +26,21 @@ public class MyFileInputStream {
 			}
 			} */
 		
+		int octect = 1024;
+		
 		try(FileInputStream fis = new FileInputStream(new File("text.txt"))) {
 			
-			byte[] buffer = new byte[8];
+			byte[] buffer = new byte[octect];
 			
 			int n = 0;
 			
 			while( (n = fis.read(buffer)) >= 0) {
+				if (n < octect) {
+					byte[] end = Arrays.copyOfRange(buffer, 0, n);
+					System.out.print(new String(end, StandardCharsets.UTF_8));
+				} else {
 					System.out.print(new String (buffer, StandardCharsets.UTF_8));
+				}
 			}
 			
 		} catch (FileNotFoundException f) {
