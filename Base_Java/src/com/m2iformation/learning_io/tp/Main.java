@@ -12,6 +12,10 @@ import java.util.List;
 
 public class Main {
 
+	/**
+	 * C'est la méthode main
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
