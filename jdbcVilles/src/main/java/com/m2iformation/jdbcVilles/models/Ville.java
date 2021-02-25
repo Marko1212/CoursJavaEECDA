@@ -1,15 +1,24 @@
 package com.m2iformation.jdbcVilles.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 //import lombok.Getter;
 //import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 //@Getter
 //@Setter
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Ville {
 	
+	@NonNull
 	private int id;
+	@NonNull
 	private String departement;
 	private String slug;
 	private String nom;
@@ -37,47 +46,6 @@ public class Ville {
 	private String altitudeMin;
 	private String altitudeMax;
 	
-	
-	
-	
-	public Ville() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Ville(int id, String departement, String slug, String nom, String nomSimple, String nomReel, String nomSoundex,
-			String nomMetaphore, String codePostal, String numeroDeCommune, String codeCommune, String arrondissement,
-			String canton, String amdi, String population2010, String population1999, String population2012,
-			String densite2010, String superficie, String longitudeDeg, String latitudeDeg, String longitudeGrd,
-			String latitudeGrd, String longitudeDms, String latitudeDms, String altitudeMin, String altitudeMax) {
-		super();
-		this.id = id;
-		this.departement = departement;
-		this.slug = slug;
-		this.nom = nom;
-		this.nomSimple = nomSimple;
-		this.nomReel = nomReel;
-		this.nomSoundex = nomSoundex;
-		this.nomMetaphore = nomMetaphore;
-		this.codePostal = codePostal;
-		this.numeroDeCommune = numeroDeCommune;
-		this.codeCommune = codeCommune;
-		this.arrondissement = arrondissement;
-		this.canton = canton;
-		this.amdi = amdi;
-		this.population2010 = population2010;
-		this.population1999 = population1999;
-		this.population2012 = population2012;
-		this.densite2010 = densite2010;
-		this.superficie = superficie;
-		this.longitudeDeg = longitudeDeg;
-		this.latitudeDeg = latitudeDeg;
-		this.longitudeGrd = longitudeGrd;
-		this.latitudeGrd = latitudeGrd;
-		this.longitudeDms = longitudeDms;
-		this.latitudeDms = latitudeDms;
-		this.altitudeMin = altitudeMin;
-		this.altitudeMax = altitudeMax;
-	}
 	
 	
 	public String toFile() {
