@@ -18,8 +18,10 @@ public class Ville {
 	
 	@NonNull
 	private int id;
+	
 	@NonNull
 	private String departement;
+	
 	private String slug;
 	private String nom;
 	private String nomSimple;
