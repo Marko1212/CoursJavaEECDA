@@ -28,7 +28,7 @@ public class ConnectionBDD {
                 e.printStackTrace();
             }
         }
-        System.out.println(connection);
+        
         return connection;
     }
     
