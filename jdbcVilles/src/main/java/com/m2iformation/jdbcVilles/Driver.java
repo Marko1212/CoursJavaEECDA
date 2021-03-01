@@ -68,7 +68,6 @@ public class Driver {
 				villeService.delete(Integer.parseInt(reponse3));
 				break;
 				}
-				
 			}
 			}
 			
@@ -107,6 +106,7 @@ public class Driver {
 						villeService.update(Integer.parseInt(reponse3), ville);
 						break;
 					}
+		
 					}
 
 					}
