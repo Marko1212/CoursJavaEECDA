@@ -64,18 +64,23 @@ public class Driver {
 			
 			if (reponse2.equals("2")) {
 				String reponse3 = sc.nextLine();
+				int compteur1 = 0;
 				for (Ville ville : villeService.searchByName(reponse)) {
 					
 				if (ville.getId() == Integer.parseInt(reponse3)) {
 				villeService.delete(Integer.parseInt(reponse3));
+				compteur1++;
 				break;
 				}
 			}
+				if (compteur1 == 0) {
+					System.out.println("L'élément avec cet identifiant ne fait pas partie de la liste ci-dessus.");
+				}
 			}
 			
 			if (reponse2.equals("1")) {
 				String reponse3 = sc.nextLine();
-				
+				int compteur2 = 0;
 				for (Ville vill : villeService.searchByName(reponse)) {
 					
 					if (vill.getId() == Integer.parseInt(reponse3)) {
@@ -106,11 +111,13 @@ public class Driver {
 						System.out.println("Veuillez entrer le nouveau canton");
 						ville.setCanton(sc.nextLine());
 						villeService.update(Integer.parseInt(reponse3), ville);
+						compteur2++;
 						break;
 					}
-		
 					}
-
+				if (compteur2 == 0) {
+					System.out.println("L'élément avec cet identifiant ne fait pas partie de la liste ci-dessus.");
+				}
 					}
 				
 				
