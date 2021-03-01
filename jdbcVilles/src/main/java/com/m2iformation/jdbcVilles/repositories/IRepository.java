@@ -6,7 +6,7 @@ public interface IRepository<ID, MODEL> {
 	//CRUD
 int create(MODEL model);
 
-MODEL findById(ID id);
+MODEL findByID(ID id);
 
 List<MODEL> findAll();
 
