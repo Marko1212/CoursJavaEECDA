@@ -10,7 +10,7 @@ public class ExoFormesEtoiles {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Entrez un nombre entier positif : ");
-		largeur = sc.nextInt();	
+		largeur = sc.nextInt();
 		System.out.println();
 		
 		System.out.println("Droite : \n");

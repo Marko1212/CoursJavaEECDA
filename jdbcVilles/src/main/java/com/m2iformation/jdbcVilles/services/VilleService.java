@@ -212,6 +212,11 @@ public class VilleService implements VilleRepository {
 			System.out.println("|" + model.getAmdi() + "|");
 			s.printStackTrace();
 		}
+		if (nbRowUpdated > 0) {
+			System.out.println("La ville a bien été mise à jour");
+		} else {
+			System.out.println("Il n'y pas de ville avec cet identifiant");
+		}
 		return nbRowUpdated;
 	}
 
@@ -228,6 +233,11 @@ public class VilleService implements VilleRepository {
 			nbRowDeleted = pst.executeUpdate();
 		} catch (SQLException s) {
 			s.printStackTrace();
+		}
+		if (nbRowDeleted > 0) {
+			System.out.println("La ville a bien été supprimée!");
+		} else {
+			System.out.println("Il n'y pas de ville avec cet identifiant!");
 		}
 		return nbRowDeleted;
 	}
@@ -275,6 +285,10 @@ public class VilleService implements VilleRepository {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		
+		if (villes.isEmpty()) {
+			System.out.println("Il n'y pas de ville correspondant à votre recherche");
 		}
 		return villes;
 	}
