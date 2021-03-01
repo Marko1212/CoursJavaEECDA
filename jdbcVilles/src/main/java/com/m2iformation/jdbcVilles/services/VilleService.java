@@ -69,6 +69,11 @@ public class VilleService implements VilleRepository {
 			
 			ResultSet rs = pst.executeQuery();
 			
+			if (!rs.isBeforeFirst()) {
+				System.out.println("Il n'y a pas de ville avec cet identifiant");
+				return null;
+			}
+			
 			while (rs.next()) {
 				
 				v.setId(rs.getInt("id"));
@@ -150,6 +155,9 @@ public class VilleService implements VilleRepository {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		if (villes.isEmpty()) {
+			System.out.println("Il n'y pas de villes enregistrées dans la base de données");
 		}
 		return villes;
 	}

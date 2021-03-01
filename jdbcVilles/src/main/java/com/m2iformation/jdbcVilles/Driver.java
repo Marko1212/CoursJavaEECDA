@@ -24,6 +24,8 @@ public class Driver {
 		System.out.println(ville); 
 		}*/
 		
+		VilleService villeService = new VilleService();
+		System.out.println(villeService.findByID(99999));
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -31,7 +33,6 @@ public class Driver {
 
 		String reponse = sc.nextLine();
 		
-		VilleService villeService = new VilleService();
 		
 		if (villeService.searchByName(reponse).isEmpty()) {
 			return;
