@@ -177,6 +177,8 @@ public class VilleService implements VilleRepository {
 		return count;
 	}
 
+	//pour la méthode update il suffit de mettre Ville model en paramètre
+	//le id n'est pas nécessaire (cf. code ci-dessous)
 	@Override
 	public int update(Integer id, Ville model) {
 		
@@ -213,7 +215,9 @@ public class VilleService implements VilleRepository {
 			pst.setString(25, model.getZMin());
 			pst.setString(26, model.getZMax());
 			pst.setInt(27, id);
-
+			//on écrirait la ligne ci-dessous si on ne mettait pas le id en
+			//paramètre
+			//pst.setInt(27, model.getId());
 			nbRowUpdated = pst.executeUpdate();
 		} catch (SQLException s) {
 			System.out.println("|" + model.getCodePostal() + "|");
