@@ -256,7 +256,7 @@ public class VilleService implements VilleRepository {
 		ArrayList<Ville> villes = new ArrayList<>();
 
 		try (Statement st = connection.createStatement()) {
-			ResultSet rs = st.executeQuery("SELECT * FROM ville WHERE nom LIKE '%" + name + "%'");
+			ResultSet rs = st.executeQuery("SELECT * FROM ville WHERE nomSimple LIKE '%" + name + "%'");
 
 			while (rs.next()) {
 				Ville v = new Ville();
