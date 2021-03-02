@@ -44,7 +44,7 @@ public class Driver {
 		}
 		
 		if (!villeService.searchByName(reponse).isEmpty()) {
-			System.out.println("Souhaitez vous faire des modifications sur une des réponses?");
+			//System.out.println("Souhaitez vous faire des modifications sur une des réponses?");
 			System.out.println("Mettre à jour (1)");
 			System.out.println("Supprimer (2)");
 			String reponse2 = sc.nextLine();
@@ -74,7 +74,7 @@ public class Driver {
 				}
 			}
 				if (compteur1 == 0) {
-					System.out.println("L'élément avec cet identifiant ne fait pas partie de la liste ci-dessus.");
+					System.out.println("La ville avec cet identifiant ne fait pas partie de la liste ci-dessus.");
 				}
 			}
 			
@@ -116,7 +116,7 @@ public class Driver {
 					}
 					}
 				if (compteur2 == 0) {
-					System.out.println("L'élément avec cet identifiant ne fait pas partie de la liste ci-dessus.");
+					System.out.println("La ville avec cet identifiant ne fait pas partie de la liste ci-dessus.");
 				}
 					}
 				
