@@ -10,7 +10,6 @@ import java.util.Calendar;
 @Data
 @NoArgsConstructor
 @Entity
-
 public class EventEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
