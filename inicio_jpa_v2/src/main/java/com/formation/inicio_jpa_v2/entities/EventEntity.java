@@ -33,4 +33,8 @@ public class EventEntity {
     @OneToOne(cascade = {CascadeType.PERSIST})
     @ToString.Exclude
     private AddressEntity addressEntity;
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @ToString.Exclude
+    private UserEntity userEntity;
 }
