@@ -23,7 +23,11 @@
         <property name="use_sql_comments">true</property>
 
         <!-- mapping class -->
-        <mapping class="com.formation.iniciojpav2.jpa.Event" />
+        <mapping class="com.formation.inicio_jpa_v2.entities.EventEntity" />
+        <mapping class="com.formation.inicio_jpa_v2.entities.GuestEntity" />
+        <mapping class="com.formation.inicio_jpa_v2.entities.UserEntity" />
+        <mapping class="com.formation.inicio_jpa_v2.entities.ItemEntity" />
+        <mapping class="com.formation.inicio_jpa_v2.entities.AddressEntity" />
 
     </session-factory>
 
