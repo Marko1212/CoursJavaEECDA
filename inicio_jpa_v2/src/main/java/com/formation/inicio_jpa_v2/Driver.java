@@ -34,8 +34,7 @@ public class Driver {
         UserEntity u1 = new UserEntity(null, "marko1212", "pass", "marko@toto.ru", null);
         UserEntity u2 = new UserEntity(null, "toto2121", "passw", "tata@titi.ru", null);
 
-        EventEntity e2 = new EventEntity("Formation mongodb", "Fonctionnement de la BigData avec mongodb", Calendar.getInstance(),  true);
-
+        EventEntity e2 = new EventEntity("Formation mongodb", "Fonctionnement de la BigData avec mongodb", Calendar.getInstance(), true);
 
 
         e.setAddressEntity(a);
@@ -43,7 +42,7 @@ public class Driver {
 
         e2.setAddressEntity(a);
         e2.setUserEntity(u1);
-        
+
         u2.setEventList(new ArrayList<>(Arrays.asList(
                 new EventEntity("event 1", "desc event 1", Calendar.getInstance(), false, u2),
                 new EventEntity("event 2", "desc event 2", Calendar.getInstance(), true, u2)
@@ -52,18 +51,15 @@ public class Driver {
         )));
 
 
-
         Transaction tx = s.beginTransaction();
 
-       // s.save(a);
-       // System.out.println(a.getId());
+        // s.save(a);
+        // System.out.println(a.getId());
 
         s.persist(e);
         s.persist(e2);
-
+        System.out.println("u2 persist");
         s.persist(u2);
-
-
 
 
         tx.commit();
@@ -90,6 +86,7 @@ public class Driver {
 
     private static void printUserEntity() {
         System.out.println("------- Affichage de mes users -------");
-        s.createQuery("from UserEntity", UserEntity.class).list().forEach(System.err::println); }
+        s.createQuery("from UserEntity", UserEntity.class).list().forEach(System.err::println);
+    }
 
 }
