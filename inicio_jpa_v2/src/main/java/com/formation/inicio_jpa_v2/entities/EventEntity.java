@@ -37,4 +37,12 @@ public class EventEntity {
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @ToString.Exclude
     private UserEntity userEntity;
+
+    public EventEntity(@NonNull String title, @NonNull String description, @NonNull Calendar beginDate, @NonNull boolean allDay, UserEntity userEntity) {
+        this.title = title;
+        this.description = description;
+        this.beginDate = beginDate;
+        this.allDay = allDay;
+        this.userEntity = userEntity;
+    }
 }

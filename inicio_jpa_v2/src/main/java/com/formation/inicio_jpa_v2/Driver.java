@@ -45,8 +45,8 @@ public class Driver {
         e2.setUserEntity(u1);
         
         u2.setEventList(new ArrayList<>(Arrays.asList(
-                new EventEntity("event 1", "desc event 1", Calendar.getInstance(), false),
-                new EventEntity("event 2", "desc event 2", Calendar.getInstance(), true)
+                new EventEntity("event 1", "desc event 1", Calendar.getInstance(), false, u2),
+                new EventEntity("event 2", "desc event 2", Calendar.getInstance(), true, u2)
 
 
         )));
