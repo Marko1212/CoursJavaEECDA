@@ -1,8 +1,6 @@
 package com.formation.inicio_jpa_v2;
 
-import com.formation.inicio_jpa_v2.entities.AddressEntity;
-import com.formation.inicio_jpa_v2.entities.EventEntity;
-import com.formation.inicio_jpa_v2.entities.UserEntity;
+import com.formation.inicio_jpa_v2.entities.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -11,6 +9,7 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 public class Driver {
 
@@ -36,6 +35,19 @@ public class Driver {
 
         EventEntity e2 = new EventEntity("Formation mongodb", "Fonctionnement de la BigData avec mongodb", Calendar.getInstance(), true);
 
+        ItemEntity i1 = new ItemEntity(null, "découverte", 10, 5, e);
+        ItemEntity i2 = new ItemEntity(null, "test", 10, 3, e);
+
+        ItemEntity i3 = new ItemEntity(null, "Php", 30, 2, e2);
+        ItemEntity i4 = new ItemEntity(null, "Symfony", 30, 7, e2);
+
+        List<GuestEntity> guests = Arrays.asList(
+            new GuestEntity(null, "Marko", "marko@java.com", null),
+            new GuestEntity(null, "Toto", "toto@nodejs.com", null)
+        );
+
+        e.setGuestList(guests);
+        e2.setGuestList(guests);
 
         e.setAddressEntity(a);
         e.setUserEntity(u1);
@@ -61,6 +73,10 @@ public class Driver {
         System.out.println("u2 persist");
         s.persist(u2);
 
+        s.persist(i1);
+        s.persist(i2);
+        s.persist(i3);
+        s.persist(i4);
 
         tx.commit();
 

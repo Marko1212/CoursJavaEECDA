@@ -39,7 +39,7 @@ public class EventEntity {
     @ToString.Exclude
     private UserEntity userEntity;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "event_guest",
             joinColumns = @JoinColumn(name = "event_id"),
