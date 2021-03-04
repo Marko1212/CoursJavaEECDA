@@ -35,7 +35,7 @@ public class Driver {
        // s.save(a);
        // System.out.println(a.getId());
 
-        s.save(e);
+        s.persist(e);
 
 
 

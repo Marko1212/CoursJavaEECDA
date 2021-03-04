@@ -30,7 +30,7 @@ public class EventEntity {
     @NonNull
     private boolean allDay;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {CascadeType.PERSIST})
     @ToString.Exclude
     private AddressEntity addressEntity;
 }
