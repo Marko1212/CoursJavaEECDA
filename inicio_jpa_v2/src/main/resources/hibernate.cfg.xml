@@ -28,6 +28,7 @@
         <mapping class="com.formation.inicio_jpa_v2.entities.UserEntity" />
         <mapping class="com.formation.inicio_jpa_v2.entities.ItemEntity" />
         <mapping class="com.formation.inicio_jpa_v2.entities.AddressEntity" />
+        
 
     </session-factory>
 
