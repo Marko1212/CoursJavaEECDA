@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -37,6 +38,17 @@ public class EventEntity {
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @ToString.Exclude
     private UserEntity userEntity;
+
+    @ManyToMany
+    @JoinTable(
+            name = "event_guest",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name= "guest_id")
+    )
+    private List<GuestEntity> guestList;
+
+    @OneToMany(mappedBy = "eventEntity")
+    private List<ItemEntity> itemList;
 
     public EventEntity(@NonNull String title, @NonNull String description, @NonNull Calendar beginDate, @NonNull boolean allDay, UserEntity userEntity) {
         this.title = title;
