@@ -27,17 +27,23 @@ public class Driver {
 
         MovieEntity returnOfJedi = new MovieEntity();
 
+        MovieEntity raidersOfTheLostArk = new MovieEntity();
+
 
         ActorEntity hamill = new ActorEntity("Mark Hamill", "Los Angeles");
         ActorEntity ford = new ActorEntity("Harrison Ford", "San Diego");
 
-        RoleEntity adventurer1 = new RoleEntity("Adventurer", starWars, ford);
+        RoleEntity hanSolo = new RoleEntity("Han Solo", starWars, ford);
 
-        RoleEntity adventurer2 = new RoleEntity("Adventurer", returnOfJedi, ford);
+        RoleEntity hanSolo2 = new RoleEntity("Han Solo", returnOfJedi, ford);
 
-        RoleEntity jedi1 = new RoleEntity("Jedi", starWars, hamill);
+        RoleEntity lukeSkywalker = new RoleEntity("Luke Skywalker", starWars, hamill);
 
-        RoleEntity jedi2 = new RoleEntity("Jedi", returnOfJedi, hamill);
+        RoleEntity lukeSkywalker2 = new RoleEntity("Luke Skywalker", returnOfJedi, hamill);
+
+        RoleEntity indianaJones = new RoleEntity("Indiana Jones", raidersOfTheLostArk, ford);
+
+
 
 
 
@@ -84,10 +90,12 @@ public class Driver {
 
 
 
-        s.persist(adventurer1);
-        s.persist(adventurer2);
-        s.persist(jedi1);
-        s.persist(jedi2);
+        s.persist(hanSolo);
+        s.persist(hanSolo2);
+        s.persist(lukeSkywalker);
+        s.persist(lukeSkywalker2);
+
+        s.persist(indianaJones);
 
         tx.commit();
 
