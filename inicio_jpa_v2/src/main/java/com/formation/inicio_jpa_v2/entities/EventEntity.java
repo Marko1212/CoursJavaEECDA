@@ -16,11 +16,12 @@ public class EventEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 150)
     @NonNull
     private String title;
 
     @NonNull
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @Temporal(TemporalType.DATE)
