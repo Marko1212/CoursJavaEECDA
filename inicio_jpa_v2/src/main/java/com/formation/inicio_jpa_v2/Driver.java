@@ -31,7 +31,9 @@ public class Driver {
         Set<ConstraintViolation<T>> constraints = validator.validate(entity);
 
         constraints.forEach(c -> {
-            System.err.printf("%s - L'attribut : %s a rencontré une erreur : %s%n", entity.getClass().getSimpleName(), c.getPropertyPath(), c.getMessage());
+            String err = String.format("%s - L'attribut : %s a rencontré une erreur : %s%n", entity.getClass().getSimpleName(), c.getPropertyPath(), c.getMessage());
+            System.err.println(err);
+            //System.err.printf("%s - L'attribut : %s a rencontré une erreur : %s%n", entity.getClass().getSimpleName(), c.getPropertyPath(), c.getMessage());
         });
 
     }
