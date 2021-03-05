@@ -17,7 +17,7 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
 
-      <property name="hibernate.hbm2ddl.auto">create</property>
+      <property name="hibernate.hbm2ddl.auto">create-drop</property>
 
         <!-- Afficher les logs SQL / hibernate-->
         <property name="show_sql">true</property>
