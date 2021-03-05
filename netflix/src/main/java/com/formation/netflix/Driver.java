@@ -94,6 +94,13 @@ public class Driver {
         // s.save(a);
         // System.out.println(a.getId());
 
+        s.persist(adventurer);
+        s.persist(warrior);
+        s.persist(jedi);
+
+        s.persist(hanSolo);
+        s.persist(lukeSkywalker);
+
         s.persist(movie1);
         s.persist(movie2);
 
