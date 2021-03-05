@@ -31,7 +31,7 @@ public class Driver {
         Set<ConstraintViolation<T>> constraints = validator.validate(entity);
 
         constraints.forEach(c -> {
-            System.err.printf("L'attribut : %s a rencontré une erreur : %s%n", c.getPropertyPath(), c.getMessage());
+            System.err.printf("%s - L'attribut : %s a rencontré une erreur : %s%n", entity.getClass().getSimpleName(), c.getPropertyPath(), c.getMessage());
         });
 
     }
@@ -44,10 +44,13 @@ public class Driver {
         AddressEntity a = new AddressEntity(null, "M2i", "4 avenue de l'Horizon", "", "59650", "Villeneuve-d'Ascq");
 
         UserEntity u1 = new UserEntity(null, "marko1212", "pass", "marko@toto.ru", null);
-        UserEntity u2 = new UserEntity(null, "toto2121", "passw", "tata@titi.ru", null);
+        UserEntity u2 = new UserEntity(null, "to", "passwo", "a@titi.ru", null);
 
+        System.out.println("---------- Erreur(s) ----------");
         validation(u1);
+        System.out.println("-------------------------------");
         validation(u2);
+        System.out.println("---------- Fin Erreur(s) ----------");
 
         EventEntity e2 = new EventEntity("Formation mongodb", "Fonctionnement de la BigData avec mongodb", Calendar.getInstance(), true);
 
