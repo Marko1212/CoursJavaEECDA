@@ -46,9 +46,9 @@ public class Driver {
         UserEntity u1 = new UserEntity(null, "marko1212", "pass", "marko@toto.ru", null);
         UserEntity u2 = new UserEntity(null, "to", "passwo", "a@titi.ru", null);
 
-        System.out.println("---------- Erreur(s) ----------");
+        System.out.println("------------ Erreur(s) ------------");
         validation(u1);
-        System.out.println("-------------------------------");
+        System.out.println("-----------------------------------");
         validation(u2);
         System.out.println("---------- Fin Erreur(s) ----------");
 
