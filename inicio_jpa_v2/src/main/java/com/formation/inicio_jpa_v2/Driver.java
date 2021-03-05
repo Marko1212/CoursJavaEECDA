@@ -1,15 +1,16 @@
 package com.formation.inicio_jpa_v2;
 
 import com.formation.inicio_jpa_v2.entities.*;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 public class Driver {
 
@@ -23,6 +24,18 @@ public class Driver {
         s.close();
     }
 
+    private static <T> void validation(T entity) {
+        ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+        Validator validator = validatorFactory.getValidator();
+
+        Set<ConstraintViolation<T>> constraints = validator.validate(entity);
+
+        constraints.forEach(c -> {
+            System.err.printf("L'attribut : %s a rencontré une erreur : %s%n", c.getPropertyPath(), c.getMessage());
+        });
+
+    }
+
     private static void testCreate() {
         System.out.println("------- Création de mes events et de mes addresses -------");
 
@@ -32,6 +45,9 @@ public class Driver {
 
         UserEntity u1 = new UserEntity(null, "marko1212", "pass", "marko@toto.ru", null);
         UserEntity u2 = new UserEntity(null, "toto2121", "passw", "tata@titi.ru", null);
+
+        validation(u1);
+        validation(u2);
 
         EventEntity e2 = new EventEntity("Formation mongodb", "Fonctionnement de la BigData avec mongodb", Calendar.getInstance(), true);
 
