@@ -13,10 +13,11 @@ import java.util.List;
 public class MovieEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_movie;
 
-
-    @ManyToMany
+    @OneToMany(mappedBy = "movieEntity", cascade = CascadeType.ALL)
     private List<RoleEntity> roleListOfMovie;
+
+
 
 }

@@ -14,15 +14,15 @@ public class ActorEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_actor;
 
     @NonNull
     private String name;
     @NonNull
     private String address;
 
-    @ManyToMany
-    private List<RoleEntity> roleListOfActor;
 
+    @OneToMany(mappedBy = "actorEntity", cascade = CascadeType.ALL)
+    private List<RoleEntity> roleListOfActor;
 
 }

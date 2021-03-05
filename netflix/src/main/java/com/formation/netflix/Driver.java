@@ -21,34 +21,25 @@ public class Driver {
 
 
     private static void testCreate() {
-        System.out.println("------- Création de mes films -------");
+        System.out.println("------- Création de mes films, acteurs et rôles -------");
 
-        MovieEntity movie1 = new MovieEntity();
+        MovieEntity starWars = new MovieEntity();
 
-        MovieEntity movie2 = new MovieEntity();
+        MovieEntity returnOfJedi = new MovieEntity();
 
-        RoleEntity adventurer = new RoleEntity("Adventurer");
 
-        RoleEntity warrior = new RoleEntity("Warrior");
+        ActorEntity hamill = new ActorEntity("Mark Hamill", "Los Angeles");
+        ActorEntity ford = new ActorEntity("Harrison Ford", "San Diego");
 
-        RoleEntity jedi = new RoleEntity("Jedi");
+        RoleEntity adventurer1 = new RoleEntity("Adventurer", starWars, ford);
 
-        ActorEntity lukeSkywalker = new ActorEntity("Mark Hamill", "Los Angeles");
-        ActorEntity hanSolo = new ActorEntity("Harrisson Ford", "San Diego");
+        RoleEntity adventurer2 = new RoleEntity("Adventurer", returnOfJedi, ford);
 
-        List<RoleEntity> listOfRoles1 = Arrays.asList(adventurer, warrior);
+        RoleEntity jedi1 = new RoleEntity("Jedi", starWars, hamill);
 
-        List<RoleEntity> listOfRoles2 = Arrays.asList(jedi, warrior);
+        RoleEntity jedi2 = new RoleEntity("Jedi", returnOfJedi, hamill);
 
-        List<ActorEntity> listOfActors = Arrays.asList(lukeSkywalker, hanSolo);
 
-        movie1.setRoleListOfMovie(listOfRoles1);
-
-        movie2.setRoleListOfMovie(listOfRoles2);
-
-        lukeSkywalker.setRoleListOfActor(listOfRoles2);
-
-        hanSolo.setRoleListOfActor(listOfRoles1);
 
 
 
@@ -91,19 +82,14 @@ public class Driver {
 
         Transaction tx = s.beginTransaction();
 
-        // s.save(a);
-        // System.out.println(a.getId());
 
-        s.persist(adventurer);
-        s.persist(warrior);
-        s.persist(jedi);
 
-        s.persist(hanSolo);
-        s.persist(lukeSkywalker);
+        s.persist(adventurer1);
+        s.persist(adventurer2);
+        s.persist(jedi1);
+        s.persist(jedi2);
 
-        s.persist(movie1);
-        s.persist(movie2);
-
+        tx.commit();
 
         /*
         System.out.println("u2 persist");
@@ -115,7 +101,7 @@ public class Driver {
         s.persist(i4);
         */
 
-        tx.commit();
+
 
         /*
         printEventEntity();

@@ -13,15 +13,17 @@ import java.util.List;
 public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_role;
 
     @NonNull
-    private String character;
+    private String featuredCharacter;
 
-    @ManyToMany(mappedBy = "roleListOfMovie")
-    private List<MovieEntity> movieList;
+    @NonNull
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    private MovieEntity movieEntity;
 
-    @ManyToMany(mappedBy = "roleListOfActor")
-    private List<ActorEntity> actorList;
+    @NonNull
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    private ActorEntity actorEntity;
 
 }
