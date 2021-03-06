@@ -80,9 +80,11 @@ public class Driver {
 
         Transaction tx = s.beginTransaction();
 
-        s.persist(princessLeia);
+
 
         s.persist(hanSolo);
+
+        s.persist(princessLeia);
 
         s.persist(lukeSkywalker);
 
