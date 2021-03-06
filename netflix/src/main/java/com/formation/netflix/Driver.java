@@ -23,15 +23,15 @@ public class Driver {
     private static void testCreate() {
         System.out.println("------- Création de mes films, acteurs et rôles -------");
 
-        MovieEntity starWars = new MovieEntity();
+        MovieEntity starWars = new MovieEntity("Star Wars");
 
-        MovieEntity returnOfJedi = new MovieEntity();
+        MovieEntity returnOfJedi = new MovieEntity("Return of Jedi");
 
-        MovieEntity theEmpireStrikesBack = new MovieEntity();
+        MovieEntity theEmpireStrikesBack = new MovieEntity("The Empire Strikes Back");
 
-        MovieEntity theForceAwakens = new MovieEntity();
+        MovieEntity theForceAwakens = new MovieEntity("The Force Awakens");
 
-        MovieEntity raidersOfTheLostArk = new MovieEntity();
+        MovieEntity raidersOfTheLostArk = new MovieEntity("Raiders of the Lost Ark");
 
         ActorEntity hamill = new ActorEntity("Mark Hamill", "Los Angeles");
         ActorEntity ford = new ActorEntity("Harrison Ford", "San Diego");

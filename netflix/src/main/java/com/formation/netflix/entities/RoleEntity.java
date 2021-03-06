@@ -3,7 +3,9 @@ package com.formation.netflix.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -27,7 +29,7 @@ public class RoleEntity {
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name= "movie_id")
     )
-    private Set<MovieEntity> movieEntities = new HashSet<>();
+    private List<MovieEntity> movieEntities = new ArrayList<>();
 
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
@@ -38,7 +40,7 @@ public class RoleEntity {
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name= "actor_id")
     )
-    private Set<ActorEntity> actorEntities = new HashSet<>();
+    private List<ActorEntity> actorEntities = new ArrayList<>();
 
 
 }

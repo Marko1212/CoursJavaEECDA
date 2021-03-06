@@ -3,7 +3,9 @@ package com.formation.netflix.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -23,7 +25,7 @@ public class ActorEntity {
     private String address;
 
     @ManyToMany(mappedBy = "actorEntities")
-    private Set<RoleEntity> rolesOfActor = new HashSet<>();
+    private List<RoleEntity> rolesOfActor = new ArrayList<>();
 
     public void addRole(RoleEntity role) {
         this.rolesOfActor.add(role);
