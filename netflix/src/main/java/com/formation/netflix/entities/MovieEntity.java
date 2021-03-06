@@ -3,7 +3,8 @@ package com.formation.netflix.entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -13,10 +14,20 @@ import java.util.List;
 public class MovieEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_movie;
+    private Integer movie_id;
 
-    @OneToMany(mappedBy = "movieEntity", cascade = CascadeType.ALL)
-    private List<RoleEntity> roleListOfMovie;
+    @ManyToMany(mappedBy = "movieEntities")
+    private Set<RoleEntity> rolesOfMovie = new HashSet<>();
+
+    public void addRole(RoleEntity role) {
+        this.rolesOfMovie.add(role);
+        role.getMovieEntities().add(this);
+    }
+
+    public void removeRole(RoleEntity role) {
+        this.rolesOfMovie.remove(role);
+        role.getMovieEntities().remove(this);
+    }
 
 
 

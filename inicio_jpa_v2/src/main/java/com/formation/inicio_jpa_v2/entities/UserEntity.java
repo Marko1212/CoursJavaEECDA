@@ -26,11 +26,11 @@ public class UserEntity {
     private String login;
 
     @Size(min = 8, max = 64)
-    @NotNull
+    @NonNull
     private String pass;
 
     @Email(message = "Ton email n'est pas valide")
-    @NotNull
+    @NonNull
     private String email;
 
     @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
