@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <!-- a SessionFactory instance listed as /jndi/name -->
+    <session-factory>
+
+        <!-- properties -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tpImmo?createDatabaseIfNotExist=true&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+
+      <property name="hibernate.hbm2ddl.auto">create-drop</property>
+
+        <!-- Afficher les logs SQL / hibernate-->
+        <property name="show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="use_sql_comments">true</property>
+
+        <!-- mapping class -->
+        <mapping class="com.formation.tp_immo.entities.Commune" />
+        <mapping class="com.formation.tp_immo.entities.Individu" />
+        <mapping class="com.formation.tp_immo.entities.Logement" />
+        <mapping class="com.formation.tp_immo.entities.TypeLogement" />
+        <mapping class="com.formation.tp_immo.entities.Quartier" />
+        
+
+    </session-factory>
+
+</hibernate-configuration>
