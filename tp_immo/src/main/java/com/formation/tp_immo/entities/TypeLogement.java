@@ -19,6 +19,10 @@ public class TypeLogement {
     @NonNull
     private double chargesForfaitaires;
 
+    public TypeLogement(String type, @NonNull double chargesForfaitaires) {
+        this.type = type;
+        this.chargesForfaitaires = chargesForfaitaires;
+    }
 
     @OneToMany(mappedBy="typeLogement", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private List<Logement> logements = new ArrayList<>();

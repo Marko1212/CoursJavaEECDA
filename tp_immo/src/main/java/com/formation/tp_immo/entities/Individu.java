@@ -3,6 +3,7 @@ package com.formation.tp_immo.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -24,10 +25,9 @@ public class Individu {
     @NonNull
     private String firstName;
 
-    @Temporal(TemporalType.DATE)
-    @ToString.Exclude
+
     @NonNull
-    private Calendar dateOfBirth ;
+    private LocalDate dateOfBirth ;
 
     @NonNull
     private String phoneNumber;
