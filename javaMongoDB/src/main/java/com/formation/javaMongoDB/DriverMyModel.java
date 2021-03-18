@@ -5,6 +5,7 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
@@ -36,7 +37,12 @@ public class DriverMyModel {
 
        // userMongoCollection.insertOne(user);
 
-        userMongoCollection.insertMany(Arrays.asList(user1, user2, user3, user4));
+       // userMongoCollection.insertMany(Arrays.asList(user1, user2, user3, user4));
+
+        //TODO : corriger erreur update
+        user.setAge(46);
+        User resUser = userMongoCollection.findOneAndUpdate(new Document("first_name", "Marko"), new Document("age", 46));
+
 
         MongoIterable<User> users = userMongoCollection.find();
 
