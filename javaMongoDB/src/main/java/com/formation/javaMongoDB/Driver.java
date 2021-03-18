@@ -10,7 +10,7 @@ public class Driver {
 
         MongoDatabase db = mongoClient.getDatabase("france");
 
-        
+        db.listCollectionNames().forEach(System.out::println);
 
 
     }
