@@ -42,8 +42,13 @@ public class DriverMyModel {
        // userMongoCollection.insertMany(Arrays.asList(user1, user2, user3, user4));
 
 
+        UpdateResult resUser = userMongoCollection.updateOne(new Document("first_name", "Marko"), Updates.set("age", 47));
 
-        userMongoCollection.updateOne(Filters.eq("first_name", "Marko"), Updates.set("age", 47));
+        System.out.println(resUser.getMatchedCount());
+        System.out.println(resUser.getModifiedCount());
+
+
+       // userMongoCollection.updateOne(Filters.eq("first_name", "Marko"), Updates.set("age", 47));
 
         MongoIterable<User> users = userMongoCollection.find();
 
