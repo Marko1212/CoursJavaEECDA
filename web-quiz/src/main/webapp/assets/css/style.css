@@ -1,3 +1,59 @@
-body {
-    background-color: #60BCE6;
+:root {
+    --blue_dark: #60BCE6;
+    --green_light: #60E67B;
 }
+
+body {
+    background-color: var(--blue_dark);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.welcome-container .welcome-title {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.welcome-container .welcome-title-h1 {
+    color: var(--green_light);
+    font-size: 6rem;
+}
+
+.welcome-container a {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 100px;
+    text-align: center;
+    background-color: var(--green_light);
+    color: black;
+    font-size: 2.5rem;
+    text-decoration: none;
+
+}
+
+.welcome-container form > div {
+    margin: 30px 0;
+    width: 90vw;
+    font-size: 2rem;
+}
+
+.welcome-container form > div > label, 
+.welcome-container form > div > div,
+.welcome-container form > div > div > input {
+    width: 100%;
+}
+
+

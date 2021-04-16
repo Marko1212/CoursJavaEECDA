@@ -12,6 +12,7 @@ pageEncoding="UTF-8"%>
       <div class="welcome-title">
         <h1>Bienvenue dans <span class="welcome-title-h1">QuizCool</span></h1>
       </div>
+      <a href="${ pageContext.request.contextPath }/nickname">Continuez</a>
     </div>
   </body>
 </html>
