@@ -4,7 +4,7 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+    <link rel="stylesheet" href="${ pageContext.request.contextPath }/assets/css/style.css">
     <title>Quiz - Welcome</title>
   </head>
   <body>
@@ -12,6 +12,7 @@ pageEncoding="UTF-8"%>
       <div class="welcome-title">
         <h1>Bienvenue dans <span class="welcome-title-h1">QuizCool</span></h1>
       </div>
+      <a href="${ pageContext.request.contextPath }/nickname">Continuez</a>
     </div>
   </body>
 </html>
