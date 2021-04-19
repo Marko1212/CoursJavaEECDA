@@ -20,7 +20,12 @@ public class QuestionsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		String nbQuestions = request.getParameter("number_questions");
+		//TODO : Je vais pouvoir faire une requête SQL pour
+		// récupérer mon nombre de questions
 		
+		HibernateUtils.getSession();
+		// Hibernate
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
