@@ -9,7 +9,7 @@
 <label for ="${ choice.id }">${choice.name}</label>
 </div>
 </c:forEach>
-<input type="hidden" name="quiz_id" value="$quiz.id" />
+<input type="hidden" name="quiz_id" value="${quiz.id}" />
 
 <div class="btn-submit">
 <button>Valider</button>
