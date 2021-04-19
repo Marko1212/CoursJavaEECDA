@@ -1,9 +1,20 @@
-<h1>Choisis le nombre de questions désirées :</h1>
+<div id="question">
+<h1>${ quiz.question }</h1>
 
-<div class="list-number-questions">
-<c:forEach begin="5" end="20" step="5" var="i">
-	<div class="number-questions">
-		<a href="${ pageContext.request.contextPath }/questions?number_questions=${i}">${ i }</a>
-	</div>
+<form action="" method="post">
+
+<c:forEach items="${ quiz.choices }" var="choice">
+<div class="input-choice">
+<input type="radio" id="${ choice.id }" name="response" value="${ choice.id }">
+<label for ="${ choice.id }">${choice.name}</label>
+</div>
 </c:forEach>
+<input type="hidden" name="quiz_id" value="$quiz.id" />
+
+<div class="btn-submit">
+<button>Valider</button>
+</div>
+</form>
+
+
 </div>
