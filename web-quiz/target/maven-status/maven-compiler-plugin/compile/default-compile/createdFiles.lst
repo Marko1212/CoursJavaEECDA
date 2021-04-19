@@ -1,2 +1,7 @@
-com\formation\web_quiz\HomePageServlet.class
+com\formation\web_quiz\NumberQuestions.class
+com\formation\web_quiz\entities\QuizEntity.class
 com\formation\web_quiz\NicknameServlet.class
+com\formation\web_quiz\HomePageServlet.class
+com\formation\web_quiz\HibernateUtils.class
+com\formation\web_quiz\QuestionsServlet.class
+com\formation\web_quiz\entities\ChoiceEntity.class

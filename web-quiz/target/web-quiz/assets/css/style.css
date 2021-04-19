@@ -3,6 +3,11 @@
     --green_light: #60E67B;
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 body {
     background-color: var(--blue_dark);
     margin: 0;
@@ -15,11 +20,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     height: 100vh;
 }
 
+.container h1 {
+	width: 100%;
+	text-align: center;
+}
+
 .container .welcome-title {
-    text-align: center;
     font-size: 2.5em;
 }
 
@@ -38,9 +48,7 @@ body {
     border-radius: 100px;
     text-align: center;
     background-color: var(--green_light);
-    color: black;
     font-size: 2.5rem;
-    text-decoration: none;
 
 }
 
@@ -56,4 +64,24 @@ body {
     width: 100%;
 }
 
+.container .list-number-questions {
+	width: 90%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.container .list-number-questions .number-questions {
+	width: 40%;
+	margin: 10px;
+	font-size: 3rem;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	background-color: var(--green_light);
+}
+
+.container .list-number-questions .number-questions a {
+display: block;	
+}
 

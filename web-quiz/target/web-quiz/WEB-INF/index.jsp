@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +12,9 @@
 
 <div class="container">
 
-<c:if test="${ page != null }">
-	<c:import url="pages/${page}.jsp" />
-</c:if>
+	<c:if test="${ page != null }">
+		<c:import url="pages/${page}.jsp" />
+	</c:if>
 
 </div>
 

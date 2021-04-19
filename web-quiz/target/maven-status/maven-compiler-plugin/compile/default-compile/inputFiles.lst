@@ -1,2 +1,7 @@
+D:\CoursJavaEECDA\web-quiz\src\main\java\com\formation\web_quiz\entities\QuizEntity.java
 D:\CoursJavaEECDA\web-quiz\src\main\java\com\formation\web_quiz\NicknameServlet.java
+D:\CoursJavaEECDA\web-quiz\src\main\java\com\formation\web_quiz\QuestionsServlet.java
+D:\CoursJavaEECDA\web-quiz\src\main\java\com\formation\web_quiz\entities\ChoiceEntity.java
+D:\CoursJavaEECDA\web-quiz\src\main\java\com\formation\web_quiz\HibernateUtils.java
 D:\CoursJavaEECDA\web-quiz\src\main\java\com\formation\web_quiz\HomePageServlet.java
+D:\CoursJavaEECDA\web-quiz\src\main\java\com\formation\web_quiz\NumberQuestions.java
