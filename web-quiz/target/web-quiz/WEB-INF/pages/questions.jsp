@@ -4,11 +4,13 @@
 <form action="" method="post">
 	<c:forEach items="${ quiz.choices }" var="choice">
 	<div class="input-choice">
+	<input type="radio" id= "{choice.id}" name="response" value="${ choice.id }">
 	<label for="{choice.id}">${ choice.name }</label>
-	<input type="radio" id= "{choice.id}" name="response" value="${ choice.name }">
 	</div>
 	</c:forEach>
-	
+	<input type="hidden" name="quiz_id" value="${ quiz.id }" />
+	<div class="btn-submit">
 	<button>Valider</button>
+	</div>
 </form>
 </div>
