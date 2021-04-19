@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.ToString;
+
+@Data
 @Entity
 @Table(name="choix")
 public class ChoiceEntity {
@@ -17,6 +21,7 @@ public class ChoiceEntity {
 	
 	private String name;
 	
+	@ToString.Exclude
 	@ManyToOne
 	private QuizEntity quiz;
 	
