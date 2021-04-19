@@ -1,18 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="stylesheet"
-      href="${ pageContext.request.contextPath }/assets/css/style.css"
-    />
-    <title>Quiz - ${title}</title>
-  </head>
-  <body>
-    <div class="welcome-container">
+
       <form
         action="${ pageContext.request.contextPath }/nickname"
         method="post"
@@ -36,6 +22,3 @@ pageEncoding="UTF-8"%>
           <button type="submit">Suivant</button>
         </div>
       </form>
-    </div>
-  </body>
-</html>

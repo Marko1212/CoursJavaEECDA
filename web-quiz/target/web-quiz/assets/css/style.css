@@ -11,24 +11,24 @@ body {
     height: 100vh;
 }
 
-.welcome-container {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.welcome-container .welcome-title {
+.container .welcome-title {
     text-align: center;
     font-size: 2.5em;
 }
 
-.welcome-container .welcome-title-h1 {
+.container .welcome-title-h1 {
     color: var(--green_light);
     font-size: 6rem;
 }
 
-.welcome-container a {
+.container a#send-nickname-page {
     position: absolute;
     right: 30px;
     bottom: 30px;
@@ -44,15 +44,15 @@ body {
 
 }
 
-.welcome-container form > div {
+.container form > div {
     margin: 30px 0;
     width: 90vw;
     font-size: 2rem;
 }
 
-.welcome-container form > div > label, 
-.welcome-container form > div > div,
-.welcome-container form > div > div > input {
+.container form > div > label, 
+.container form > div > div,
+.container form > div > div > input {
     width: 100%;
 }
 

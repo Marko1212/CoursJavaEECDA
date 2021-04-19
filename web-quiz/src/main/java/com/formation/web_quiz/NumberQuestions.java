@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class NicknameServlet
+ * Servlet implementation class NumberQuestions
  */
-@WebServlet("/nickname")
-public class NicknameServlet extends HttpServlet {
+@WebServlet("/number-questions")
+public class NumberQuestions extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NicknameServlet() {
+    public NumberQuestions() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,31 +27,19 @@ public class NicknameServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setAttribute("title", "Choix du nombre de questions");
+		request.setAttribute("page", "choice_number_questions");
 		
-		request.setAttribute("title", "Nickname");
-		request.setAttribute("page", "nickname");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nickname = request.getParameter("nickname");
-		
-		if (nickname.trim().length() < 4) {
-			request.setAttribute("error", "Vérifie le champ texte. Il doit avoir au minimum 4 caractères");
-			request.setAttribute("nickname", nickname);
-			doGet(request, response);
-			return;
-		}
-		
-		request.getSession().setAttribute("nickname", nickname);
-		
-		response.sendRedirect(request.getContextPath() + "/number-questions");
-		
-		}
-
-		
-	
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
+
+}
