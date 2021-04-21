@@ -117,6 +117,16 @@ body {
 	background-color: var(--green_light);
 }
 
+.container div#question form .input-choice label.good_answer {
+	background-color: #16a085;
+	color: azure;
+}
+
+.container div#question form .input-choice label.bad_answer {
+	background-color: #c0392b;
+	color: azure;
+}
+
 .container div#question form .input-choice input[type='radio']:checked + label {
 	background-color: white;
 }
@@ -127,18 +137,63 @@ body {
 	justify-content: center;
 }
 
-.container div#question form div.btn-submit button {
+.container div#question form div.btn-submit button,
+.container div#question a{
+	display: block;
+	text-align: center;
 	width: 250px;
+	font-size: 2rem;
 	margin: auto;
+	padding: 12px;
+	color: white;
+	background-color: #923463;
 	border: none;
 	outline: none;
-	background-color: #e84393;
-	color: white;
-	font-size: 2rem;
-	padding: 12px;
 }
 
+.container div#question form div.btn-submit button {
+	display: none;
+}
 
+.container div.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	background-color: rgba(0,0,0,0.4);
+	text-align: center;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 300ms;
+}
+
+.container div.modal:target {
+	visibility: visible;
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.container div.modal > div {
+	width: 400px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	padding: 15px;
+}
+
+.container div.modal > div h3 {
+	font-size: 3rem;
+	margin: 15px;
+}
+
+.container div.modal > div p {
+	font-size: 1.7rem;
+}
 
 
 

@@ -29,7 +29,7 @@ public class NumberQuestions extends HttpServlet {
 		
 		request.setAttribute("title", "Choix du nombre de questions");
 		request.setAttribute("page", "choice_number_questions");
-		
+		QuestionsServlet.currentPositionListQuiz = 0;
 		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 		
 	}

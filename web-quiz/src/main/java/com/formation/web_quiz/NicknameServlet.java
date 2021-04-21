@@ -3,9 +3,11 @@ package com.formation.web_quiz;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class NicknameServlet
@@ -46,8 +48,18 @@ public class NicknameServlet extends HttpServlet {
 			return;
 		}
 		
-		request.getSession().setAttribute("nickname", nickname);
-		
+		HttpSession session = request.getSession();
+		session.setAttribute("nickname", nickname);
+		//session.setMaxInactiveInterval(15);
+		System.out.println(session.getId());
+		System.out.println(session.getCreationTime());
+		System.out.println(session.getLastAccessedTime());
+
+		Cookie cookie = new Cookie("nickname", nickname);
+		cookie.setSecure(true);
+		cookie.setMaxAge(30);
+		response.addCookie(cookie);
+
 		response.sendRedirect(request.getContextPath() + "/number-questions");
 		
 		}
