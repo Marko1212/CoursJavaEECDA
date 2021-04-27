@@ -2,9 +2,11 @@ package com.formation.startrestspring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -27,6 +29,14 @@ public class UserController {
 	public Iterable<UserModel> findAll() {
 		return userService.findAll();
 		
+	}
+	
+	@GetMapping("/{id}")
+	public UserModel findById(@PathVariable Long id) {
+		if (userService.findById(id).isPresent()) {
+			return userService.findById(id).get();
+		}
+		return null;
 	}
 
 }
