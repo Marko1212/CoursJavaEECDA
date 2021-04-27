@@ -1,9 +1,9 @@
 package com.formation.startrestspring;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,7 +16,7 @@ public class UserController {
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
-	@PostMapping("")
+	@RequestMapping(value="", method = {RequestMethod.POST, RequestMethod.PATCH, RequestMethod.PUT})
 	public UserModel createUser(@RequestBody UserModel userModel) {
 		
 		return userService.save(userModel);
