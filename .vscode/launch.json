@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-StartRestSpringApplication<start-rest-spring>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.formation.startrestspring.StartRestSpringApplication",
+            "projectName": "start-rest-spring",
+            "args": ""
+        }
+    ]
+}
