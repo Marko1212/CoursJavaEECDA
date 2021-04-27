@@ -11,10 +11,10 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/books?serverTimezone=UTC</property>
-        <property name="hibernate.connection.username">forma</property>
-        <property name="hibernate.connection.password">samsam</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
 
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
 
 <!--         Afficher les logs SQL / hibernate-->
         <property name="show_sql">true</property>
