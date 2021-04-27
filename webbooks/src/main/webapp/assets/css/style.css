@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body header div.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+}
+body header div.logo h1 {
+  font-size: 2.5rem;
+  color: #5c4d4d;
+}
+body header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+body header nav ul li {
+  margin: 0 10px;
+  font-size: 2rem;
+  color: #5c4d4d;
+}
+body header nav ul li.active {
+  border-bottom: 4px solid #a96851;
+}
+body section.carroussel {
+  width: 100vw;
+}
+body section.carroussel article {
+  width: 100%;
+}
+body section.carroussel article img {
+  width: 100%;
+  height: auto;
+}
+body div.container {
+  width: 90%;
+  margin: 0;
+}
+body div.container main.index {
+  width: 100vw;
+  margin: 0 auto;
+}
+body div.container main.index h2 {
+  text-align: center;
+}
+body div.container main.index section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: calc(250px * 3 + 120px * 3);
+}
+body div.container main.index section article {
+  max-width: 250px;
+  max-height: 450px;
+  margin: 20px 60px;
+}
+body div.container main.index section article img {
+  box-shadow: 0 0 30px #5c4d4d;
+  max-width: 250px;
+  max-height: 450px;
+}
+body div.container main.index section article h5 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0;
+}
+body div.container main.one-book {
+  width: 90%;
+  margin: auto;
+}
+body div.container main.one-book h1 {
+  font-weight: 600;
+  max-width: 700px;
+  border-bottom: 4px solid #a96851;
+}
+body div.container main.one-book section.photo_description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body div.container main.one-book section.photo_description article {
+  min-width: 300px;
+  width: 40%;
+}
+body div.container main.one-book section.photo_description article img {
+  max-width: 90%;
+  min-width: 250px;
+  height: auto;
+  box-shadow: 0 0 15px #5c4d4d;
+}
+body div.container main.one-book section.photo_description aside {
+  width: 60%;
+  min-width: 350px;
+}
+body div.container main.one-book section.photo_description aside div.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+body div.container main.one-book section.synopsis h2 {
+  font-weight: 600;
+  max-width: 700px;
+  border-bottom: 4px solid #a96851;
+  font-size: 2rem;
+}
+body div.container main.contact {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  padding-top: 20px;
+  color: #5c4d4d;
+}
+body div.container main.contact form > div {
+  margin: 20px 0;
+}
+body div.container main.contact form > div > div:first-child {
+  margin-bottom: 5px;
+}
+body div.container main.contact form > div div > label {
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
+body div.container main.contact form > div div > input, body div.container main.contact form > div div > textarea {
+  width: 100%;
+  font-size: 1.2rem;
+}
+body div.container main.contact form > div div > input {
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #5c4d4d;
+}
+body div.container main.contact form > div div > textarea {
+  height: 300px;
+  resize: vertical;
+  border-radius: 10px;
+  border: 1px solid #5c4d4d;
+}
+body div.container main.contact form div > button {
+  border: none;
+  outline: none;
+  background-color: #5c4d4d;
+  color: #f2f1e7;
+  font-size: 1.3rem;
+  width: 300px;
+  height: 50px;
+  border-radius: calc(50px / 5);
+}
+body div.container main.contact form div > span.errors {
+  color: darkred;
+}
+body div[id^=open-modal] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+body div[id^=open-modal] div.modal {
+  z-index: 9999;
+  position: absolute;
+  min-width: 600px;
+  width: 80%;
+  max-width: 1000px;
+  margin-top: 115px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  color: #a96851;
+}
+body div[id^=open-modal] div.modal a.close-modal {
+  position: absolute;
+  right: 16px;
+  top: 5px;
+  font-size: 2rem;
+}
+body div[id^=open-modal] div.modal .input {
+  width: 90%;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+body div[id^=open-modal] div.modal .input input {
+  width: 100%;
+  height: 50px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  color: #a96851;
+  font-family: "Poppins", sans-serif;
+  padding: 0 10px;
+  outline: none;
+  margin: 15px 0;
+}
+body div[id^=open-modal] div.modal .input input::placeholder {
+  padding: 0 10px;
+}
+body div[id^=open-modal] div.modal .input button[type=submit] {
+  border: none;
+  outline: none;
+  background-color: #5c4d4d;
+  color: #f2f1e7;
+  font-size: 1.3rem;
+  width: 300px;
+  height: 50px;
+  border-radius: calc(50px / 5);
+}
+body div#open-modal-search:target {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+body div#open-modal-search div.modal {
+  height: 600px;
+}
+body div#open-modal-signin:target {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+body div#open-modal-signup:target {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+body div#open-settings {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+body div#open-settings:target {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+body div#open-settings div.modal-settings {
+  z-index: 9999;
+  position: absolute;
+  width: 200px;
+  right: 0;
+  margin-top: 115px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding-right: 20px;
+  border-radius: 15px;
+  color: #a96851;
+  font-size: 1.3rem;
+}
+body div#open-settings div.modal-settings div > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body div.response {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  height: calc(600px - 50px - (40px + 15px) - 40px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+body div.response > div > a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+body div.response > div > a img {
+  width: 64px;
+  height: auto;
+  margin-right: 30px;
+}
+body div.response > div > a div.search-description {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  justify-content: center;
+}
+body div.response > div > a div.search-description span {
+  margin-top: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */

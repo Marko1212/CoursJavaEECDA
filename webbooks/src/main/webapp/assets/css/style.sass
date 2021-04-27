@@ -1,0 +1,332 @@
+$marron-fonce: #5c4d4d
+$marron-clair: #a96851
+$blanc-casse : #f2f1e7
+
+$height-input: 50px
+
+@mixin my-title($fontWeight: 600,$maxWidth: 700px,$borderSize: 4px)
+  font-weight: $fontWeight
+  max-width: $maxWidth
+  border-bottom: $borderSize solid $marron-clair
+
+@mixin button($color: $marron-fonce, $width:300px, $height: 50px)
+  border: none
+  outline: none
+  @if $color == $marron-fonce
+    background-color: $color
+    color: $blanc-casse
+  @else
+    background-color: $color
+    color: $marron-fonce
+
+  font-size: 1.3rem
+  width: $width
+  height: $height
+  border-radius: calc(#{$height} / 5)
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap')
+
+a
+  color: inherit
+  text-decoration: none
+
+
+body
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: 'Poppins', sans-serif
+
+  header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+    div.logo
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 350px
+      h1
+        font-size: 2.5rem
+        color: $marron-fonce
+
+    nav
+      ul
+        list-style: none
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 0
+        li
+          margin: 0 10px
+          font-size: 2rem
+          color: $marron-fonce
+
+          &.active
+            border-bottom: 4px solid $marron-clair
+
+  section.carroussel
+    width: 100vw
+    article
+      width: 100%
+      img
+        width: 100%
+        height: auto
+
+  div.container
+    width: 90%
+    margin: 0
+    main
+      &.index
+        width: 100vw
+        margin: 0 auto
+
+        h2
+          text-align: center
+
+        section
+          display: flex
+          justify-content: space-around
+          align-items: center
+          flex-wrap: wrap
+          margin: 0 auto
+          max-width: calc(250px * 3 + 120px *  3)
+
+          article
+            max-width: 250px
+            max-height: 450px
+            margin: 20px 60px
+            img
+              box-shadow: 0 0 30px $marron-fonce
+              max-width: 250px
+              max-height: 450px
+            h5
+              font-weight: 400
+              font-size: 1.2rem
+              text-align: center
+              margin: 0
+      &.one-book
+        width: 90%
+        margin: auto
+        h1
+          @include my-title()
+
+        section
+          &.photo_description
+            display: flex
+            justify-content: space-between
+            align-items: center
+            flex-wrap: wrap
+
+            article
+              min-width: 300px
+              width: 40%
+              img
+                max-width: 90%
+                min-width: 250px
+                height: auto
+                box-shadow: 0 0 15px $marron-fonce
+
+            aside
+              width: 60%
+              min-width: 350px
+
+              div.row
+                width: 100%
+                display: flex
+                justify-content: space-between
+                flex-wrap: wrap
+                margin-bottom: 40px
+          &.synopsis
+            h2
+              @include my-title()
+              font-size: 2rem
+      &.contact
+        width: 80%
+        max-width: 800px
+        margin: auto
+        padding-top: 20px
+        color: $marron-fonce
+        form
+          &>div
+            margin: 20px 0
+            &>div:first-child
+              margin-bottom: 5px
+            div>label
+              text-decoration: underline
+              font-size: 1.2rem
+
+            div>input, div>textarea
+              width: 100%
+              font-size: 1.2rem
+
+            div>input
+              height: 30px
+              border-radius: 10px
+              border: 1px solid $marron-fonce
+            div>textarea
+              height: 300px
+              resize: vertical
+              border-radius: 10px
+              border: 1px solid $marron-fonce
+          div>button
+            @include button()
+          div>span.errors
+            color: darkred
+
+
+  div[id^='open-modal']
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 9998
+
+    display: flex
+    justify-content: center
+
+    background-color: rgba(0,0,0,0.4)
+
+    pointer-events: none
+    opacity: 0
+    visibility: hidden
+
+    div.modal
+      z-index: 9999
+      position: absolute
+      min-width: 600px
+      width: 80%
+      max-width: 1000px
+      margin-top: 115px
+      background-color: white
+
+      display: flex
+      justify-content: center
+      align-items: flex-start
+      flex-wrap: wrap
+
+      border-radius: 15px
+      color: $marron-clair
+
+      a.close-modal
+        position: absolute
+        right: 16px
+        top: 5px
+        font-size: 2rem
+
+
+      .input
+        width: 90%
+        // margin à calculer pour la hauteur de la modal
+        margin-top: 40px
+        margin-bottom: 15px
+        input
+          width: 100%
+          height: $height-input
+          font-size: 1.1rem
+          border-radius: 10px
+          color: $marron-clair
+          font-family: 'Poppins', sans-serif
+          padding: 0 10px
+          outline: none
+          margin: 15px 0
+          &::placeholder
+            padding: 0 10px
+
+        button[type='submit']
+          @include button()
+
+  $height-search: 600px
+  div#open-modal-search
+
+    &:target
+      pointer-events: auto
+      opacity: 1
+      visibility: visible
+
+    div.modal
+      height: $height-search
+
+  div#open-modal-signin
+
+    &:target
+      pointer-events: auto
+      opacity: 1
+      visibility: visible
+
+  div#open-modal-signup
+
+    &:target
+      pointer-events: auto
+      opacity: 1
+      visibility: visible
+
+  div#open-settings
+    position: absolute
+    top: -2px
+    right: 0
+    z-index: 9999
+    pointer-events: none
+    opacity: 0
+    visibility: hidden
+    &:target
+      pointer-events: auto
+      opacity: 1
+      visibility: visible
+
+    div.modal-settings
+      z-index: 9999
+      position: absolute
+      width: 200px
+      right: 0
+      margin-top: 115px
+      background-color: white
+
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: flex-end
+      flex-wrap: wrap
+
+      padding-right: 20px
+
+      border-radius: 15px
+      color: $marron-clair
+      font-size: 1.3rem
+      div > a
+        display: flex
+        justify-content: center
+        align-items: center
+
+
+
+
+  div.response
+    width: 90%
+    display: flex
+    flex-direction: column
+    height: calc(#{$height-search} - #{$height-input} - (40px + 15px) - 40px)
+    overflow-y: auto
+    overflow-x: hidden
+    & > div > a
+      width: 100%
+      display: flex
+      align-items: center
+      margin-top: 20px
+      img
+        width: 64px
+        height: auto
+        margin-right: 30px
+
+      div.search-description
+        display: flex
+        flex-direction: column
+        align-self: flex-start
+        justify-content: center
+        span
+          margin-top: 5px
+
+.center
+  text-align: center
