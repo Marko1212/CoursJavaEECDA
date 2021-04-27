@@ -1,6 +1,7 @@
 package com.formation.startrestspring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +21,12 @@ public class UserController {
 	public UserModel createUser(@RequestBody UserModel userModel) {
 		
 		return userService.save(userModel);
+	}
+	
+	@GetMapping("")
+	public Iterable<UserModel> findAll() {
+		return userService.findAll();
+		
 	}
 
 }
