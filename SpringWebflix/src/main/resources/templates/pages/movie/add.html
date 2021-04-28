@@ -9,6 +9,7 @@
 		</div>
 		<input type="text" th:field="*{title}">
 	</div>
+	<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
 	<div>
 		<div>
 			<label th:for="description">Description</label>
@@ -16,6 +17,7 @@
 		<textarea th:field="*{description}" cols="30" rows="10">
         </textarea>
 	</div>
+	<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
 	<div>
 		<div>
 			<label th:for="cover"></label>
@@ -28,12 +30,14 @@
 		</div>
 		<input type="number" min="0" th:field="*{duration}">
 	</div>
+	<span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}"></span>
 	<div>
 		<div>
 			<label th:for="releaseDate"></label>
 		</div>
 		<input type="date" th:field="*{releaseDate}">
 	</div>
+	<span th:if="${#fields.hasErrors('releaseDate')}" th:errors="*{releaseDate}"></span>
 	<div>
 		<button type="submit">Ajouter</button>
 	</div>

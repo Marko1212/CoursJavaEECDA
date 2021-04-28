@@ -26,8 +26,14 @@ public class AdminMovieController {
 	public String postAddMovie(Model model, @Validated @ModelAttribute(name="movie") MovieEntity movie, 
 			BindingResult movieBindingResult) 
 	{
+		
+		if (!movieBindingResult.hasErrors()) {
+			// TODO sauvegarde en BDD
+			System.out.println(movie);
+			return "redirect:/";
+		}
 		model.addAttribute("page", "movie/add");
-		System.out.println(movie);
+		System.out.println(movieBindingResult.getAllErrors());
 		return "index";
 	}
 
