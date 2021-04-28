@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <!-- ${pageContext.request.contextPath}/css/home.css -->
 <link rel="stylesheet" th:href="@{/css/home.css}">
-<title th:text="Webflix"></title>
+<title th:text="#{site.name}"></title>
 </head>
 <body>
 <h1 th:utext="${title}"></h1>
 
 <a th:href="@{/movies}">Lien vers Movies</a>
 
-<p th:text="#{site.name}"></p>
 </body>
 </html>
