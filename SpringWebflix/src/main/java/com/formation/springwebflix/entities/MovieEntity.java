@@ -41,7 +41,7 @@ private String description;
 
 @Column(nullable = false)
 @Min(0)
-@NotNull
+@NotNull(message = "{movie.add.form.duration.notNull.message}")
 private Integer duration;
 
 private String cover;
