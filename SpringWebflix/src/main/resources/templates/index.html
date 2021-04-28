@@ -2,9 +2,11 @@
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title th:utext="${title}"></title>
+<title th:text="Webflix"></title>
 </head>
 <body>
-<h1>Hello world</h1>
+<h1 th:utext="${title}"></h1>
+
+<a th:href="@{/movies}">Lien vers Movies</a>
 </body>
 </html>
