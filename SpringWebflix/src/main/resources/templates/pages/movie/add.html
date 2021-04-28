@@ -1,27 +1,40 @@
 <div>
-    <h1 th:text="#{page.movie.add.title}"></h1>
+	<h1 th:text="#{page.movie.add.title}"></h1>
 </div>
 
-<form action="">
-    <div>
-        <div><label for=""></label></div>
-        <input type="text" name="" id=""></div>
-    <div>
-        <div><label for=""></label></div>
-        <input type="text" name="" id=""></div>
-    <div>
-        <div><label for=""></label></div>
-        <input type="text" name="" id=""></div>
-    <div>
-        <div><label for=""></label></div>
-        <input type="text" name="" id=""></div>
-    <div>
-        <div><label for=""></label></div>
-        <input type="text" name="" id=""></div>
-    <div>
-        <div><label for=""></label></div>
-        <input type="text" name="" id=""></div>
-    <div>
-        <div><label for=""></label></div>
-        <input type="text" name="" id=""></div>
+<form th:action="@{/admin/movie}" method="post" th:object="${movie}">
+	<div>
+		<div>
+			<label th:for="title">Titre</label>
+		</div>
+		<input type="text" th:field="*{title}">
+	</div>
+	<div>
+		<div>
+			<label th:for="description">Description</label>
+		</div>
+		<textarea th:field="*{description}" cols="30" rows="10">
+        </textarea>
+	</div>
+	<div>
+		<div>
+			<label th:for="cover"></label>
+		</div>
+		<input type="file" accept="image/*" th:field="*{cover}">
+	</div>
+	<div>
+		<div>
+			<label th:for="duration"></label>
+		</div>
+		<input type="number" min="0" th:field="*{duration}">
+	</div>
+	<div>
+		<div>
+			<label th:for="releaseDate"></label>
+		</div>
+		<input type="date" th:field="*{releaseDate}">
+	</div>
+	<div>
+		<button type="submit">Ajouter</button>
+	</div>
 </form>

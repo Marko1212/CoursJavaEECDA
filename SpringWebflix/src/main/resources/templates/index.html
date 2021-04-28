@@ -10,8 +10,9 @@
 
 <header th:replace="~{layouts/header.html :: connected}"></header>
 
-<div class="container" th:insert="~{pages/movie/add.html}">
+<th:block th:if="${page}">
+<div class="container" th:insert="~{|pages/${page}.html|}">
 </div>
-
+</th:block>
 </body>
 </html>
