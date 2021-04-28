@@ -7,9 +7,11 @@
 <title th:text="#{site.name}"></title>
 </head>
 <body>
-<h1 th:utext="${title}"></h1>
 
-<a th:href="@{/movies}">Lien vers Movies</a>
+<header th:replace="~{layouts/header.html :: connected}"></header>
+
+<div class="container" th:insert="~{pages/movie/add.html}">
+</div>
 
 </body>
 </html>
