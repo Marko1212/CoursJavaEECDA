@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.formation.springwebflix.entities.MovieEntity;
+import com.formation.springwebflix.entities.Movie;
 import com.formation.springwebflix.services.FileService;
 
 @Controller
@@ -31,12 +31,12 @@ public class AdminMovieController {
 	@GetMapping("")
 	public String getAddMovie(Model model) {
 		model.addAttribute("page", "movie/add");
-		model.addAttribute("movie", new MovieEntity());
+		model.addAttribute("movie", new Movie());
 		return "index";
 	}
 	
 	@PostMapping("")
-	public String postAddMovie(Model model, @Validated @ModelAttribute(name="movie") MovieEntity movie, 
+	public String postAddMovie(Model model, @Validated @ModelAttribute(name="movie") Movie movie, 
 			BindingResult movieBindingResult,
 			@RequestParam(name="file") MultipartFile file)
 	{
