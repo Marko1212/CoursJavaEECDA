@@ -55,7 +55,9 @@ public class AdminMovieController {
 			return "redirect:/";
 		}
 		model.addAttribute("page", "movie/add");
+		if (file.isEmpty()) {
 		model.addAttribute("fileError", "movie.add.form.file.empty.message");
+		}
 		System.out.println(movieBindingResult.getAllErrors());
 		return "index";
 	}
