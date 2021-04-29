@@ -14,18 +14,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.formation.springwebflix.entities.Category;
 import com.formation.springwebflix.entities.Movie;
 import com.formation.springwebflix.services.FileService;
+import com.formation.springwebflix.services.MovieService;
 
 @Controller
 @RequestMapping("/admin/movie")
 public class AdminMovieController {
 	
 	private final FileService fileService;
+	private final MovieService movieService;
 	
 	@Autowired
-	public AdminMovieController(FileService fileService) {
+	public AdminMovieController(FileService fileService, MovieService movieService) {
 		this.fileService = fileService;
+		this.movieService = movieService;
 	}
 	
 	@GetMapping("")
@@ -42,9 +46,10 @@ public class AdminMovieController {
 	{
 		System.out.println(file.isEmpty());
 		if (!movieBindingResult.hasErrors() && !file.isEmpty()) {
-			// TODO sauvegarde en BDD
-			
 			movie.setCover(fileService.uploadfile(file));
+			
+			movie.setCategory(new Category(4, "Science-fiction"));
+			movieService.save(movie);
 			
 			System.out.println(movie);
 			return "redirect:/";

@@ -2,6 +2,12 @@ package com.formation.springwebflix.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 
 
@@ -9,22 +15,24 @@ import java.util.List;
  * The persistent class for the category database table.
  * 
  */
+@Data
+@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @NamedQuery(name="Category.findAll", query="SELECT c FROM Category c")
 public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@NonNull
 	@Id
 	private int id;
 
+	@NonNull
 	private String name;
 
 	//bi-directional many-to-one association to Movie
 	@OneToMany(mappedBy="category")
 	private List<Movie> movies;
-
-	public Category() {
-	}
 
 	public int getId() {
 		return this.id;

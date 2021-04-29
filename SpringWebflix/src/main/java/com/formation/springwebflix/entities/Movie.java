@@ -53,6 +53,7 @@ public class Movie implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="released_at")
+	@DateTimeFormat(pattern ="yyyy-MM-dd")
 	private Date releasedAt;
 
 	private String title;
