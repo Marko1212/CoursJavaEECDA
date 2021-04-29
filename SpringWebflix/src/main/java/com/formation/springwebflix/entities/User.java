@@ -72,8 +72,6 @@ public class User implements Serializable {
 		this.requestedAt = requestedAt;
 	}
 
-
-
 	public String getToken() {
 		return this.token;
 	}
@@ -81,8 +79,6 @@ public class User implements Serializable {
 	public void setToken(String token) {
 		this.token = token;
 	}
-
-
 
 	public String getUsername() {
 		return this.username;

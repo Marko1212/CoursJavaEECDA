@@ -19,8 +19,6 @@ public class Category implements Serializable {
 
 	private String name;
 
-	private String title;
-
 	//bi-directional many-to-one association to Movie
 	@OneToMany(mappedBy="category")
 	private List<Movie> movies;
@@ -42,14 +40,6 @@ public class Category implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getTitle() {
-		return this.title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public List<Movie> getMovies() {
