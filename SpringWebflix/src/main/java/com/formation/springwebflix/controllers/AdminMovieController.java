@@ -2,6 +2,7 @@ package com.formation.springwebflix.controllers;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,10 +15,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.formation.springwebflix.entities.MovieEntity;
+import com.formation.springwebflix.services.FileService;
 
 @Controller
 @RequestMapping("/admin/movie")
 public class AdminMovieController {
+	
+	private final FileService fileService;
+	
+	@Autowired
+	public AdminMovieController(FileService fileService) {
+		this.fileService = fileService;
+	}
 	
 	@GetMapping("")
 	public String getAddMovie(Model model) {
@@ -39,6 +48,9 @@ public class AdminMovieController {
 		System.out.println(file.isEmpty());
 		if (!movieBindingResult.hasErrors() && !file.isEmpty()) {
 			// TODO sauvegarde en BDD
+			
+			movie.setCover(fileService.uploadfile(file));
+			
 			System.out.println(movie);
 			return "redirect:/";
 		}
