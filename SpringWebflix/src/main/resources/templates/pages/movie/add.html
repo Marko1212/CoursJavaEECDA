@@ -24,6 +24,7 @@
 		</div>
 		<input type="file" accept="image/*" name="file" id="file">
 	</div>
+	<span th:if="${fileError}" th:text="#{${fileError}}"></span>
 	<div>
 		<div>
 			<label th:for="duration">Durée du film</label>
