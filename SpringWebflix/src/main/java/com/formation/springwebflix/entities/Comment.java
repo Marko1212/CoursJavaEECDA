@@ -21,7 +21,8 @@ public class Comment implements Serializable {
 	@Column(name="created_at")
 	private Date createdAt;
 
-	@Lob
+	//@Lob
+	@Column(columnDefinition = "TEXT")
 	private String message;
 
 	private String nickname;

@@ -22,7 +22,6 @@ public class User implements Serializable {
 
 	private String email;
 
-	@Lob
 	private String password;
 
 	@Temporal(TemporalType.TIMESTAMP)

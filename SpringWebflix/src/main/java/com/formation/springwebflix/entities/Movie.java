@@ -45,7 +45,8 @@ public class Movie implements Serializable {
 
 	private String cover;
 
-	@Lob
+	//@Lob
+	@Column(columnDefinition = "TEXT")
 	private String description;
 
 	private int duration;
