@@ -34,11 +34,11 @@
 	<span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}"></span>
 	<div>
 		<div>
-			<label th:for="releaseDate">Date de sortie</label>
+			<label th:for="releasedAt">Date de sortie</label>
 		</div>
-		<input type="date" th:field="*{releaseDate}">
+		<input type="date" th:field="*{releasedAt}">
 	</div>
-	<span th:if="${#fields.hasErrors('releaseDate')}" th:errors="*{releaseDate}"></span>
+	<span th:if="${#fields.hasErrors('releasedAt')}" th:errors="*{releasedAt}"></span>
 	<div>
 		<button type="submit">Ajouter</button>
 	</div>
