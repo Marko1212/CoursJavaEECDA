@@ -31,12 +31,7 @@ public class AdminMovieController {
 	@GetMapping("")
 	public String getAddMovie(Model model) {
 		model.addAttribute("page", "movie/add");
-		MovieEntity mov = new MovieEntity();
-		mov.setTitle("coucou");
-		mov.setDescription("coucou");
-		mov.setDuration(20);
-		mov.setReleaseDate(new Date());
-		model.addAttribute("movie", mov);
+		model.addAttribute("movie", new MovieEntity());
 		return "index";
 	}
 	
