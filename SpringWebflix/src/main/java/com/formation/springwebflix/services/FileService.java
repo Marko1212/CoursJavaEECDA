@@ -3,6 +3,7 @@ package com.formation.springwebflix.services;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.formation.springwebflix.config.FileStorageException;
 
 @Service
 public class FileService {
@@ -29,8 +32,9 @@ public class FileService {
 			return copyLocation.toString();
 			
 		} catch(IOException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
+			
+		throw new FileStorageException(e.getMessage());
 		}
-	return null;
 	}
 }

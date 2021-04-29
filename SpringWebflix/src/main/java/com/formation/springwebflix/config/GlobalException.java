@@ -1,5 +1,6 @@
 package com.formation.springwebflix.config;
 
+import java.nio.file.NoSuchFileException;
 import java.util.Locale;
 
 import javax.naming.SizeLimitExceededException;
@@ -30,6 +31,14 @@ public class GlobalException {
 		String[] args = {maxFileSize};
 		redirectAttributes.addFlashAttribute("fileError",messageSource.getMessage("movie.add.form.file.too.big.message", args, LocaleContextHolder.getLocale()));
 		return "redirect:/admin/movie";
+	}
+	
+	@ExceptionHandler(FileStorageException.class)
+	public String handlerFileStorageException(RedirectAttributes redirectAttributes) {
+		
+		redirectAttributes.addFlashAttribute("fileError", "movie.add.form.file.no.such.message");
+		
+		return "/redirect:/admin/movie";
 	}
 
 }
