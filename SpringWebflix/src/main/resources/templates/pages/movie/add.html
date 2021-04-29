@@ -2,7 +2,7 @@
 	<h1 th:text="#{page.movie.add.title}"></h1>
 </div>
 
-<form th:action="@{/admin/movie}" method="post" th:object="${movie}">
+<form th:action="@{/admin/movie}" method="post" th:object="${movie}" enctype="multipart/form-data">
 	<div>
 		<div>
 			<label th:for="title">Titre</label>
@@ -20,20 +20,20 @@
 	<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
 	<div>
 		<div>
-			<label th:for="cover"></label>
+			<label th:for="file">Couverture du film</label>
 		</div>
-		<input type="file" accept="image/*" th:field="*{cover}">
+		<input type="file" accept="image/*" name="file" id="file">
 	</div>
 	<div>
 		<div>
-			<label th:for="duration"></label>
+			<label th:for="duration">Durée du film</label>
 		</div>
 		<input type="number" min="0" th:field="*{duration}">
 	</div>
 	<span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}"></span>
 	<div>
 		<div>
-			<label th:for="releaseDate"></label>
+			<label th:for="releaseDate">Date de sortie</label>
 		</div>
 		<input type="date" th:field="*{releaseDate}">
 	</div>
