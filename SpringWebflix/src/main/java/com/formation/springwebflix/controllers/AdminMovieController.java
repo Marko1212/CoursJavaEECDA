@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.formation.springwebflix.entities.Category;
 import com.formation.springwebflix.entities.Movie;
+import com.formation.springwebflix.services.CategoryService;
 import com.formation.springwebflix.services.FileService;
 import com.formation.springwebflix.services.MovieService;
 
@@ -25,17 +26,21 @@ public class AdminMovieController {
 	
 	private final FileService fileService;
 	private final MovieService movieService;
+	private final CategoryService categoryService;
 	
 	@Autowired
-	public AdminMovieController(FileService fileService, MovieService movieService) {
+	public AdminMovieController(FileService fileService, MovieService movieService, CategoryService categoryService) {
 		this.fileService = fileService;
 		this.movieService = movieService;
+		this.categoryService = categoryService;
+	
 	}
 	
 	@GetMapping("")
 	public String getAddMovie(Model model) {
 		model.addAttribute("page", "movie/add");
 		model.addAttribute("movie", new Movie());
+		model.addAttribute("category", categoryService.findAll());
 		return "index";
 	}
 	
@@ -46,11 +51,13 @@ public class AdminMovieController {
 	{
 		System.out.println(file.isEmpty());
 		if (!movieBindingResult.hasErrors() && !file.isEmpty()) {
-			movie.setCover(fileService.uploadfile(file));
+			movie.setCover(fileService.createFileName(file));
 			
 			movie.setCategory(new Category(4, "Science-fiction"));
 			movieService.save(movie);
-			
+			if (movie.getId() != null) {
+				fileService.uploadfile(file, movie.getCover());
+			}
 			System.out.println(movie);
 			return "redirect:/";
 		}

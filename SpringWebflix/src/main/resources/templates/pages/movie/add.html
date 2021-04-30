@@ -2,7 +2,8 @@
 	<h1 th:text="#{page.movie.add.title}"></h1>
 </div>
 
-<form th:action="@{/admin/movie}" method="post" th:object="${movie}" enctype="multipart/form-data">
+<form th:action="@{/admin/movie}" method="post" th:object="${movie}"
+	enctype="multipart/form-data">
 	<div>
 		<div>
 			<label th:for="title">Titre</label>
@@ -17,7 +18,8 @@
 		<textarea th:field="*{description}" cols="30" rows="10">
         </textarea>
 	</div>
-	<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+	<span th:if="${#fields.hasErrors('description')}"
+		th:errors="*{description}"></span>
 	<div>
 		<div>
 			<label th:for="file">Couverture du film</label>
@@ -38,7 +40,20 @@
 		</div>
 		<input type="date" th:field="*{releasedAt}">
 	</div>
-	<span th:if="${#fields.hasErrors('releasedAt')}" th:errors="*{releasedAt}"></span>
+	<span th:if="${#fields.hasErrors('releasedAt')}"
+		th:errors="*{releasedAt}"></span>
+	<div>
+		<div>
+			<label th:for="category">Catégorie</label>
+		</div>
+		<select th:field="*{category}">
+			<option value=""></option>
+			<option th:each="cat : ${category}" th:value="${cat.id}"
+				th:text="${cat.name}"></option>
+		</select>
+	</div>
+
+
 	<div>
 		<button type="submit">Ajouter</button>
 	</div>

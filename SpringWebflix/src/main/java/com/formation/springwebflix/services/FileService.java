@@ -22,23 +22,25 @@ public class FileService {
 	@Value("${app.upload.dir:${user.home}}")
 	private String uploadDir;
 
-	public String uploadfile(MultipartFile file) {
+	public void uploadfile(MultipartFile file, String uuid) {
 		//final String[] tab = file.getOriginalFilename().split("\\.");
 		//final String ext = tab[tab.length - 1]; // il n'y a pas de point
-		final String ext = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
-		
-		final String uuid = UUID.randomUUID().toString() + ext;
 
 		try {
 			Path copyLocation = Paths.get(
 					uploadDir + File.separator + uuid);
 			Files.copy(file.getInputStream(), copyLocation, StandardCopyOption.REPLACE_EXISTING);
-			return copyLocation.toString();
 			
 		} catch(IOException e) {
 			// e.printStackTrace();
 			
 		throw new FileStorageException(e.getMessage());
 		}
+	}
+
+	public String createFileName(MultipartFile file) {
+		final String ext = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+		
+		return UUID.randomUUID() + ext;
 	}
 }
