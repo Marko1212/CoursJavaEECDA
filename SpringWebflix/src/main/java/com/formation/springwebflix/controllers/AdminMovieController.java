@@ -40,7 +40,7 @@ public class AdminMovieController {
 	public String getAddMovie(Model model) {
 		model.addAttribute("page", "movie/add");
 		model.addAttribute("movie", new Movie());
-		model.addAttribute("category", categoryService.findAll());
+		model.addAttribute("categories", categoryService.findAll());
 		return "index";
 	}
 	
@@ -52,8 +52,7 @@ public class AdminMovieController {
 		System.out.println(file.isEmpty());
 		if (!movieBindingResult.hasErrors() && !file.isEmpty()) {
 			movie.setCover(fileService.createFileName(file));
-			
-			movie.setCategory(new Category(4, "Science-fiction"));
+
 			movieService.save(movie);
 			if (movie.getId() != null) {
 				fileService.uploadfile(file, movie.getCover());

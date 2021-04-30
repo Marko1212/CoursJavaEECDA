@@ -49,7 +49,7 @@ public class Movie implements Serializable {
 	@Column(columnDefinition = "TEXT")
 	private String description;
 
-	private int duration;
+	private Integer duration;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="released_at")
@@ -110,11 +110,11 @@ public class Movie implements Serializable {
 		this.description = description;
 	}
 
-	public int getDuration() {
+	public Integer getDuration() {
 		return this.duration;
 	}
 
-	public void setDuration(int duration) {
+	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
 

@@ -15,7 +15,7 @@ public class Comment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private Integer id;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_at")
@@ -36,11 +36,11 @@ public class Comment implements Serializable {
 	public Comment() {
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

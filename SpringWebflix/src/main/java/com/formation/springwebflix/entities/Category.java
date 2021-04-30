@@ -25,7 +25,7 @@ public class Category implements Serializable {
 
 	@NonNull
 	@Id
-	private int id;
+	private Integer id;
 
 	@NonNull
 	private String name;
@@ -34,11 +34,11 @@ public class Category implements Serializable {
 	@OneToMany(mappedBy="category")
 	private List<Movie> movies;
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
