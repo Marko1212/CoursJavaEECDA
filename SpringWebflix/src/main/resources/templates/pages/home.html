@@ -1,0 +1,21 @@
+<h1>Sélection de films aléatoire</h1>
+
+<div class="movies">
+	<div class="movie" th:each="m : ${movies}">
+		<figure>
+			<div>
+				<img th:src="@{|/uploads/${m.cover}|}" th:alt="${m.title}">
+			</div>
+			<figcaption>
+				<h4 th:text="${m.title}"></h4>
+				<p class="figcaption-date" th:text="|Sortie en ${#dates.format(m.releasedAt, 'yyyy')}|"></p>
+				<p th:if="${m.description.length >= 50}" th:text="${#strings.substring(m.description, 0, 50)}"></p>
+				<p th:unless="${m.description.length >= 50}" th:text="${m.description}"></p>
+				<a href="">Voir le film</a>
+				<hr>
+				<!-- star black : &starf; -->
+				<i th:each="i: ${#numbers.sequence(0, 4)}">&star;</i>
+			</figcaption>
+		</figure>
+	</div>
+</div>
