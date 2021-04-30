@@ -9,7 +9,9 @@ import com.formation.springwebflix.entities.Movie;
 @Repository
 public interface MovieRepository extends CrudRepository<Movie, Integer> {
 	
-		Iterable<Movie> findAllByTitleLikeAndDurationBetween(String title, Integer min, Integer max);
+	//	Iterable<Movie> findAllByTitleLikeAndDurationBetween(String title, Integer min, Integer max);
+	
+	
 		
 	
 }

@@ -28,7 +28,7 @@
 			</div>
 			<div>
 				<div><label for="repassword">Password Verify</label></div>
-				<div><input type="password" name="repassword" id="repassword" value="${signup-user.rePassword}">
+				<div><input type="password" name="repassword" id="repassword">
 				</div>
 				<c:if test="${signup-errors.rePassword != ''}">
 					<span class="errors">${signup-errors.rePassword}</span>
