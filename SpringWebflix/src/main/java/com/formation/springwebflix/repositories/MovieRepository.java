@@ -11,7 +11,7 @@ public interface MovieRepository extends CrudRepository<Movie, Integer> {
 	
 	//	Iterable<Movie> findAllByTitleLikeAndDurationBetween(String title, Integer min, Integer max);
 	
-	
+	Iterable<Movie> findTop10ByOrderByReleasedAtDesc();
 		
 	
 }

@@ -21,7 +21,7 @@ public class HomeController {
 	@GetMapping("/")
 	public String home(Model model) {
 		model.addAttribute("page", "home");
-		model.addAttribute("movies", movieService.findAll());
+		model.addAttribute("movies", movieService.findLast10());
 		return "index";
 	}
 	

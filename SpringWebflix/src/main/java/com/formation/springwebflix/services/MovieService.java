@@ -26,6 +26,10 @@ public class MovieService {
 		return movieRepository.findById(id);
 	}
 	
+	public Iterable <Movie> findLast10() {
+		return movieRepository.findTop10ByOrderByReleasedAtDesc();
+	}
+	
 	public Movie save(Movie movie) {
 		return movieRepository.save(movie);
 	}
