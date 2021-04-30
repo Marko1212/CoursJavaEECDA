@@ -34,13 +34,14 @@ import lombok.Data;
  * The persistent class for the movie database table.
  * 
  */
-@Data
+
 @Entity
 @NamedQuery(name="Movie.findAll", query="SELECT m FROM Movie m")
 public class Movie implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
 	private String cover;
