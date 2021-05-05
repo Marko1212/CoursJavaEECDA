@@ -13,7 +13,7 @@
 			<div>
 				<div><label for="signup-email">Email</label></div>
 				<div><input type="email" name="email" id="signup-email"
-							title="Ne dois pas avoir de caracteres speciaux"
+							title="Ne doit pas avoir de caracteres speciaux"
 							></div>
 				<c:if test="${signup-errors.email != ''}">
 					<span class="errors">${signup-errors.email}</span>

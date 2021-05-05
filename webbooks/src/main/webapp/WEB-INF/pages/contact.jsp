@@ -3,7 +3,7 @@
 		<div>
 			<div><label for="fullname">Full name</label></div>
 			<div><input type="text" name="fullname" id="fullname"
-						title="Ne dois pas avoir de caracteres speciaux"
+						title="Ne doit pas avoir de caracteres speciaux"
 						value="${contact.fullname}"></div>
 			<c:if test="${errors.fullname != ''}">
 				<span class="errors">${errors.fullname}</span>
