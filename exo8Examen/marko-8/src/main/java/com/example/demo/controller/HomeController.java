@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@CrossOrigin(origins = "", allowedHeaders = "")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Controller
 @RequestMapping("/")
 public class HomeController {
@@ -44,6 +44,7 @@ public class HomeController {
         RequestIngredient ri = new RequestIngredient();
 
         model.addAttribute("meals", m);
+        model.addAttribute("mealsAll", meals);
         model.addAttribute("rm", rm);
         model.addAttribute("ing", ri);
         model.addAttribute("page", "Home");
@@ -84,6 +85,7 @@ public class HomeController {
         RequestIngredient ri = new RequestIngredient();
 
         model.addAttribute("meals", mm);
+        model.addAttribute("mealsAll", meals);
         model.addAttribute("rm", rm);
         model.addAttribute("ing", ri);
         model.addAttribute("page", "Add Meal");
@@ -95,6 +97,10 @@ public class HomeController {
     public String addIng(@ModelAttribute("ing") RequestIngredient ri, Model model){
         System.out.println("ingredient");
         System.out.println(ri);
+        Ingredient ingredient = new Ingredient(ri.getNombre(), ri.getUnite(), ri.getNom(), ri.getMealId());
+        System.out.println("ingredient");
+        System.out.println(ingredient);
+        ingredientRepository.save(ingredient);
 
         List<Meal> meals = mealRepository.findAll();
         Random r = new Random();
@@ -113,6 +119,7 @@ public class HomeController {
         RequestIngredient rii = new RequestIngredient();
 
         model.addAttribute("meals", m);
+        model.addAttribute("mealsAll", meals);
         model.addAttribute("rm", rm);
         model.addAttribute("ing", rii);
         model.addAttribute("page", "Add Ingredient");

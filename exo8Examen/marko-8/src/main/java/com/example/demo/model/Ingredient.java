@@ -14,8 +14,15 @@ public class Ingredient {
     private String unite;
     private String nom;
 
-    @Column(name = "mealId", insertable = false, nullable = true)
+    @Column(name = "mealId")
     private int mealId;
+
+    public Ingredient(int nombre, String unite, String nom, int mealId) {
+        this.nombre = nombre;
+        this.unite = unite;
+        this.nom = nom;
+        this.mealId = mealId;
+    }
 
     public Ingredient(int nombre, String s, String s1) {
         this.nombre = nombre;
