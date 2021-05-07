@@ -24,10 +24,10 @@ public class Ingredient {
         this.mealId = mealId;
     }
 
-    public Ingredient(int nombre, String s, String s1) {
+    public Ingredient(int nombre, String unite, String nom) {
         this.nombre = nombre;
-        this.unite = s;
-        this.nom = s1;
+        this.unite = unite;
+        this.nom = nom;
     }
 
     @Override
