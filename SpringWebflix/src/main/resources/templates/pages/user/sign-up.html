@@ -1,0 +1,43 @@
+<div>
+<h1>Inscription</h1>
+</div>
+
+<form th:action="@{/sign-up}" method="post" th:object="${user}">
+	<div>
+		<div>
+			<label th:for="email">Titre</label>
+		</div>
+		<input type="email" th:field="*{email}">
+	</div>
+	<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+	
+	<div>
+		<div>
+			<label th:for="username">Pseudo</label>
+		</div>
+		<input type="text" th:field="*{username}">
+	</div>
+	<span th:if="${#fields.hasErrors('username')}"
+		th:errors="*{username}"></span>
+		
+	<div>
+		<div>
+			<label th:for="password">Mot de passe</label>
+		</div>
+		<input type="password" th:field="*{password}">
+	</div>
+	<span th:if="${#fields.hasErrors('password')}" th:text="*{password}"></span>
+	
+	<div>
+		<div>
+			<label th:for="repassword">Vérification du mot de passe</label>
+		</div>
+		<input type="password" th:field="*{repassword}">
+	</div>
+	<span th:if="${#fields.hasErrors('repassword')}" th:errors="*{repassword}"></span>
+	
+	<div>
+		<button type="submit">S'inscrire</button>
+	</div>
+
+</form>

@@ -24,6 +24,9 @@ public class User implements Serializable {
 	private String email;
 
 	private String password;
+	
+	@Transient
+	private String repassword;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="requested_at")
@@ -62,6 +65,14 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getRepassword() {
+		return repassword;
+	}
+
+	public void setRepassword(String repassword) {
+		this.repassword = repassword;
 	}
 
 	public Date getRequestedAt() {
