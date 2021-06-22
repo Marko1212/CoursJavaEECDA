@@ -2,6 +2,10 @@ package com.formation.springwebflix.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;  
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.math.BigInteger;
@@ -21,6 +25,8 @@ public class User implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
+	@Email
+	@NotNull
 	private String email;
 
 	private String password;
@@ -34,6 +40,8 @@ public class User implements Serializable {
 
 	private String token;
 
+	@Column(nullable=false, unique = true)
+	@Pattern(regexp = "^[a-z0-9À-ÖØ-öø-ÿ]{3,64}$", flags= {Pattern.Flag.CASE_INSENSITIVE, Pattern.Flag.DOTALL})
 	private String username;
 
 	//bi-directional many-to-one association to Payment
