@@ -38,8 +38,8 @@ public class UserController {
 		
 		if(!userBinding.hasErrors()) {
 			if (user.getPassword().equals(user.getRepassword())) {
-				// save dans la bdd après chiffrage du mdp
-				BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(9);
+				
+				BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 				String p = passwordEncoder.encode(user.getPassword());
 				user.setPassword(p);
 				userService.save(user);
@@ -51,6 +51,13 @@ public class UserController {
 		
 		model.addAttribute("page", "user/sign-up");
 		model.addAttribute("user", user);
+		return "index";
+	}
+	
+	@GetMapping("/sign-in")
+	public String getSignIn(Model model) {
+		model.addAttribute("page", "user/sign-in");
+		model.addAttribute("user", new User());
 		return "index";
 	}
 
