@@ -4,7 +4,10 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;  
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -26,12 +29,16 @@ public class User implements Serializable {
 	private Integer id;
 
 	@Email
-	@NotNull
+	@NotEmpty
 	private String email;
 
+	@Column(nullable=false)
+	@NotNull
+	@Size(min=6, max=64)
 	private String password;
 	
 	@Transient
+	@Size(min=6, max=64)
 	private String repassword;
 
 	@Temporal(TemporalType.TIMESTAMP)
