@@ -1,0 +1,21 @@
+<div>
+<h1>Connexion</h1>
+</div>
+<form th:action="@{/sign-in}" method="post">
+	<div>
+		<div>
+			<label for="email">Email ou Pseudo</label>
+		</div>
+		<input type="email" name="email" id="email">
+	</div>
+	<div>
+		<div>
+			<label for="password">Mot de passe</label>
+		</div>
+		<input type="password" name="password" id="password">
+	</div>
+	<span th:if="${error}" th:text="${error}"></span>
+	<div>
+		<button type="submit">Se connecter</button>
+	</div>
+</form>

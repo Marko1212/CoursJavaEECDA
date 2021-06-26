@@ -2,6 +2,8 @@ package com.formation.springwebflix.controllers;
 
 
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.formation.springwebflix.entities.User;
 import com.formation.springwebflix.services.UserService;
@@ -20,6 +23,7 @@ import com.formation.springwebflix.services.UserService;
 public class UserController {
 
 	private final UserService userService;
+	private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
 	@Autowired
 	public UserController(UserService userService) {
@@ -39,7 +43,7 @@ public class UserController {
 		if(!userBinding.hasErrors()) {
 			if (user.getPassword().equals(user.getRepassword())) {
 				
-				BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			
 				String p = passwordEncoder.encode(user.getPassword());
 				user.setPassword(p);
 				userService.save(user);
@@ -57,7 +61,28 @@ public class UserController {
 	@GetMapping("/sign-in")
 	public String getSignIn(Model model) {
 		model.addAttribute("page", "user/sign-in");
-		model.addAttribute("user", new User());
+		return "index";
+	}
+	
+	@PostMapping("/sign-in")
+	public String postSignIn(Model model, 
+			@RequestParam(name="email") String email,
+			@RequestParam(name="password") String password
+			) {
+		if (!email.isEmpty() && !password.isEmpty()) {
+			Optional<User> userOp = userService.findByEmailOrUsername(email);
+			if (userOp.isPresent()) {
+				User user = userOp.get();
+				if (passwordEncoder.matches(password, user.getPassword())) {
+					
+					
+					return "redirect:/";
+				}
+			}
+			
+		}
+		model.addAttribute("error", "Email et/ou pseudo et/ou mot de passe incorrects");
+		model.addAttribute("page", "user/sign-in");
 		return "index";
 	}
 

@@ -10,5 +10,5 @@ import com.formation.springwebflix.entities.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer>{
 
-	Optional<User> findByEmail(String email);
+	Optional<User> findByEmailOrUsername(String email, String username);
 }
