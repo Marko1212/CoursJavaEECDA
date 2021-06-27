@@ -67,7 +67,8 @@ public class UserController {
 	@PostMapping("/sign-in")
 	public String postSignIn(Model model, 
 			@RequestParam(name="email") String email,
-			@RequestParam(name="password") String password
+			@RequestParam(name="password") String password,
+			HttpServletRequest request
 			) {
 		if (!email.isEmpty() && !password.isEmpty()) {
 			Optional<User> userOp = userService.findByEmailOrUsername(email);
@@ -75,7 +76,7 @@ public class UserController {
 				User user = userOp.get();
 				if (passwordEncoder.matches(password, user.getPassword())) {
 					
-					
+					// j'ouvre ma session
 					return "redirect:/";
 				}
 			}
