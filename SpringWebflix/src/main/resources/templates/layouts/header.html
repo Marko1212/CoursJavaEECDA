@@ -13,10 +13,12 @@
 			<ul>
 				<li>Recherche</li>
 				<li>
-					<a th:href="@{/sign-in}">Connexion</a>
+					<a th:unless="${session.userEmail}" th:href="@{/sign-in}">Connexion</a>
+					<span th:if="${session.userEmail}" th:text="${session.userUsername}"></span>
 				</li>
 				<li>
-					<a th:href="@{/sign-up}">Inscription</a>
+					<a th:unless="${session.userEmail}" th:href="@{/sign-up}">Inscription</a>
+					<a th:if="${session.userEmail}" th:href="@{/logout}">Se déconnecter</a>
 				</li>
 			</ul>
 		</div>

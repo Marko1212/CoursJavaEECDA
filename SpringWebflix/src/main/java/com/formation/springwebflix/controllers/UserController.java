@@ -4,6 +4,7 @@ package com.formation.springwebflix.controllers;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,14 +68,16 @@ public class UserController {
 	@PostMapping("/sign-in")
 	public String postSignIn(Model model, 
 			@RequestParam(name="email") String email,
-			@RequestParam(name="password") String password
+			@RequestParam(name="password") String password,
+			HttpServletRequest request
 			) {
 		if (!email.isEmpty() && !password.isEmpty()) {
 			Optional<User> userOp = userService.findByEmailOrUsername(email);
 			if (userOp.isPresent()) {
 				User user = userOp.get();
 				if (passwordEncoder.matches(password, user.getPassword())) {
-					
+					request.getSession().setAttribute("userEmail", user.getEmail());
+					request.getSession().setAttribute("userUsername", user.getUsername());
 					// j'ouvre ma session
 					return "redirect:/";
 				}
@@ -85,5 +88,12 @@ public class UserController {
 		model.addAttribute("page", "user/sign-in");
 		return "index";
 	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return "redirect:/";
+	}
+	
 
 }
