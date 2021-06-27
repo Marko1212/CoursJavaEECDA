@@ -67,8 +67,7 @@ public class UserController {
 	@PostMapping("/sign-in")
 	public String postSignIn(Model model, 
 			@RequestParam(name="email") String email,
-			@RequestParam(name="password") String password,
-			HttpServletRequest request
+			@RequestParam(name="password") String password
 			) {
 		if (!email.isEmpty() && !password.isEmpty()) {
 			Optional<User> userOp = userService.findByEmailOrUsername(email);
