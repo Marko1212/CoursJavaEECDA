@@ -50,10 +50,16 @@ public class User implements Serializable {
 	@Column(nullable=false, unique = true)
 	@Pattern(regexp = "^[a-z0-9À-ÖØ-öø-ÿ]{3,64}$", flags= {Pattern.Flag.CASE_INSENSITIVE, Pattern.Flag.DOTALL})
 	private String username;
+	
+	@Column(nullable = false)
+	private Boolean enabled = true;
 
 	//bi-directional many-to-one association to Payment
 	@OneToMany(mappedBy="user")
 	private List<Payment> payments;
+	
+	@ManyToOne
+	private Role role;
 
 	public User() {
 	}
