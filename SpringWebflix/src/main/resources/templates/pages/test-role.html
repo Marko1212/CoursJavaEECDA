@@ -1,5 +1,7 @@
-<div>
+<div xmlns="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<h1 sec:authorize="hasRole('ADMIN')">je suis admin et j'y ai accès</h1>
+<h1 sec:authorize="hasRole('USER')">je suis user et j'y ai accès</h1>
 
-<h1>je suis admin et j'y ai accès</h1>
-<h1>je suis user et j'y ai accès</h1>
+<p sec:authorize="isAuthenticated()">Je suis connecté</p>
+
 </div>
