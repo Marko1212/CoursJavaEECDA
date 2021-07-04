@@ -72,6 +72,23 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
+	
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	public String getEmail() {
 		return this.email;
 	}

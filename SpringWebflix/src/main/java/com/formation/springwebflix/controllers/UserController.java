@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.formation.springwebflix.entities.Role;
 import com.formation.springwebflix.entities.User;
+import com.formation.springwebflix.enums.RoleEnum;
+import com.formation.springwebflix.services.RoleService;
 import com.formation.springwebflix.services.UserService;
 
 @Controller
@@ -25,10 +28,12 @@ public class UserController {
 
 	private final UserService userService;
 	private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	private final RoleService roleService;
 	
 	@Autowired
-	public UserController(UserService userService) {
+	public UserController(UserService userService, RoleService roleService) {
 		this.userService = userService;
+		this.roleService = roleService;
 	}
 	
 	@GetMapping("/sign-up")
@@ -47,6 +52,8 @@ public class UserController {
 			
 				String p = passwordEncoder.encode(user.getPassword());
 				user.setPassword(p);
+				Role role = roleService.findByRole(RoleEnum.ROLE_USER);
+				user.setRole(role);
 				userService.save(user);
 				return "redirect:/";
 			}
