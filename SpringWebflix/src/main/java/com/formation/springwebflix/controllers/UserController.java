@@ -83,9 +83,10 @@ public class UserController {
 			if (userOp.isPresent()) {
 				User user = userOp.get();
 				if (passwordEncoder.matches(password, user.getPassword())) {
+					// j'ouvre ma session
 					request.getSession().setAttribute("userEmail", user.getEmail());
 					request.getSession().setAttribute("userUsername", user.getUsername());
-					// j'ouvre ma session
+					
 					return "redirect:/";
 				}
 			}
