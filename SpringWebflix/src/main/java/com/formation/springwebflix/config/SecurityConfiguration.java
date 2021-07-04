@@ -23,13 +23,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	private final String roleQuery = "select u.email, r.code from user u inner join role r on (u.role_id = r.id) where email = ?";
 	
-	
-	
 	private final DataSource datasource;
+	
+	private final AuthenticationSuccessHandlerImpl authenticationSuccessHandler;
 
 	@Autowired
-	public SecurityConfiguration(DataSource datasource) {
+	public SecurityConfiguration(DataSource datasource, AuthenticationSuccessHandlerImpl authenticationSuccessHandler) {
 		this.datasource = datasource;
+		this.authenticationSuccessHandler = authenticationSuccessHandler;
 	}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -56,7 +57,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.disable()
 		.formLogin()
 		.loginPage("/sign-in")
-		.defaultSuccessUrl("/", true)
+		.successHandler(authenticationSuccessHandler)
+	//	.defaultSuccessUrl("/", true)
 		.failureUrl("/sign-in?error=true")
 		.usernameParameter("email")
 		.passwordParameter("password")
